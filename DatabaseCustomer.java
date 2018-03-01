@@ -2,8 +2,8 @@
 /**
  * Write a description of class DatabaseCustomer here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Muhammad Aris Rizaldi_1506673643)
+ * @version (2018.03.01)
  */
 public class DatabaseCustomer
 {
@@ -27,11 +27,6 @@ public class DatabaseCustomer
     }
         
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+   
     
 }
