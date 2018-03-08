@@ -24,4 +24,5 @@ comment7.target=void\ setDeskripsi(java.lang.String)
 comment7.text=\r\n\ Mutator\ for\ objects\ of\ class\ Lokasi\r\n\ untuk\ menentukan\ nilai\ deskripsi\r\n\ @param\ deskripsi.\r\n
 comment8.params=
 comment8.target=void\ printData()
+comment8.text=\r\n\ untuk\ mencetak\ data\r\n
 numComments=9

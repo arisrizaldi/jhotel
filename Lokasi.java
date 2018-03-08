@@ -84,8 +84,12 @@ public class Lokasi
     {
         deskripsiLokasi = deskripsi;
     }
+    /**
+     * untuk mencetak data
+     */
     public void printData()
     {
+        System.out.println(deskripsiLokasi);
     }
     
     

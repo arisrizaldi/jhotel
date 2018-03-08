@@ -83,6 +83,13 @@ public class Hotel
     {
         this.bintang = bintang;
     }
+    /**
+     * untuk mencetak data
+     */
+    public void printData()
+    {
+        System.out.println(nama);
+    }
     
 
 }

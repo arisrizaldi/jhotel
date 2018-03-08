@@ -18,4 +18,5 @@ comment5.target=void\ setNama(java.lang.String)
 comment5.text=\r\n\ Mutator\ for\ objects\ of\ class\ Customer\r\n\ untuk\ menentukan\ nilai\ nama\r\n\ @param\ nama.\r\n
 comment6.params=
 comment6.target=void\ printData()
+comment6.text=\r\n\ untuk\ mencetak\ data\r\n
 numComments=7

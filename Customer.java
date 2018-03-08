@@ -62,8 +62,12 @@ public class Customer
     {
         this.nama = nama;
     }
+    /**
+     * untuk mencetak data
+     */
     public void printData()
     {
+        System.out.println(nama);
     }
     
     

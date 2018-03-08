@@ -13,6 +13,7 @@ public class Pesanan
     private String nama_pelanggan;
     private boolean isDiproses;
     private boolean isSelesai;
+    private Room kamar;
 
     /**
      * Constructor for objects of class Pesanan
@@ -66,6 +67,11 @@ public class Pesanan
         return isSelesai;
     }
     
+    public Room getRoom()
+    {
+        return kamar;
+    }
+    
     /**
      * Mutator for objects of class Pesanan
      * untuk menentukan nilai biaya
@@ -105,14 +111,19 @@ public class Pesanan
     {
         isSelesai = diproses;
     }
-    
+    public void setRoom(Room kamar)
+    {
+        this.kamar = kamar;
+    }
 
     /**
      * untuk mencetak data
      */
     public void printData()
     {
+        System.out.println(biaya);
     }
+    
     
     
     
