@@ -11,6 +11,7 @@ public class Pesanan
     private double biaya;
     private Customer pelanggan;
     private String nama_pelanggan;
+    private TipeKamar tipe_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
@@ -45,6 +46,15 @@ public class Pesanan
     public Customer getPelanggan()
     {
         return pelanggan;
+    }
+    
+    public String getNamaPelanggan()
+    {
+        return nama_pelanggan;
+    }
+    public TipeKamar getTipeKamar()
+    {
+        return tipe_kamar;
     }
     
     /**
@@ -92,6 +102,16 @@ public class Pesanan
         pelanggan = baru;
     }
     
+    public void setNamaPelanggan(String nama_pelanggan)
+    {
+        this.nama_pelanggan = nama_pelanggan;
+    } 
+    
+    public void setTipeKamar(TipeKamar tipe_kamar)
+    {
+        this.tipe_kamar = tipe_kamar;
+    }
+    
     /**
      * Mutator for objects of class Pesanan
      * untuk menentukan nilai statusdiproses
@@ -121,7 +141,7 @@ public class Pesanan
      */
     public void printData()
     {
-        System.out.println(biaya);
+        System.out.println("Nama Pelanggan: "+getNamaPelanggan() + "\nTipe Kamar: "+getTipeKamar() + "\n Status Diproses: "+getStatusDiproses() + "\n Status Selesai: "+getStatusSelesai());
     }
     
     

@@ -22,9 +22,10 @@ public class Administrasi
     public static void pesananDitugaskan(Pesanan pesan, Room kamar)
     {
 
-    pesan.setStatusSelesai(false);
-    pesan.setStatusDiproses(true);
-    pesan.setRoom(kamar);
+        pesan.setStatusSelesai(false);
+        pesan.setStatusDiproses(true);
+        pesan.setRoom(kamar);
+        kamar.setPesanan(pesan);
     
     }
     public static void roomAmbilPesanan(Pesanan pesan, Room kamar)
@@ -63,11 +64,20 @@ public class Administrasi
     {
         roomLepasPesanan(pesan.getRoom());
 
-        pesan.setStatusSelesai(true);
+        pesan.setStatusSelesai(false);
         pesan.setStatusDiproses(false);
         pesan.setRoom(null);
     
     }
     public static void pesananSelesai(Pesanan pesan)
-    {}
+    {
+
+       roomLepasPesanan(pesan.getRoom());
+
+        pesan.setStatusSelesai(true);
+        pesan.setStatusDiproses(false);
+        pesan.setRoom(null);
+       
+
+    }
 }

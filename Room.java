@@ -20,11 +20,21 @@ public class Room
     /**
      * Constructor for objects of class Room
      */
-    public Room()
+    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, Customer customer, double dailytariff, StatusKamar status_kamar)
     {
-        // initialise instance variables
+        this.hotel = hotel;
+        this.nomor_kamar = nomor_kamar;
+        this.isAvailable = isAvailable;
+        this.customer = customer;
+        dailyTariff = dailytariff;
+        this.status_kamar = status_kamar;
 
     }
+    public Hotel getHotel()
+    {
+        return hotel;
+    }
+    
     public int getID()
     {
         return id;
@@ -90,6 +100,7 @@ public class Room
     }
     public void printData()
     {
+        System.out.println("Nama Hotel: "+hotel.getNama() +"\nNomor Kamar: "+getNomorKamar() +"\nStatus Ketersediaan: "+getStatusAvailable() + "\nPelanggan: " +customer.getNama() + "\nHarga: "+getDailyTariff() + "\n Status Kamar: " +status_kamar.toString());
     }
 
     

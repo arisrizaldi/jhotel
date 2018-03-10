@@ -67,7 +67,7 @@ public class Customer
      */
     public void printData()
     {
-        System.out.println(nama);
+        System.out.println("ID: "+getID() + "\nNama Pelanggan: "+getNama());
     }
     
     
