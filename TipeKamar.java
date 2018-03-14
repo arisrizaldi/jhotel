@@ -1,6 +1,6 @@
 
 /**
- * Enumeration class TipeKamar - write a description of the enum class here
+ * Enumeration class TipeKamar - berisi tipe-tipe kamar pada JHotel.
  *
  * @author (your name here)
  * @version (version number or date here)

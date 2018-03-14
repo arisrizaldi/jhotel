@@ -11,16 +11,28 @@ public class DatabaseRoom
     private static String[] list_room;
 
     /**
-     * Constructor for objects of class DatabaseRoom
+     * untuk menambahkan data ruangan.
+     * 
+     * @return false
      */
     public static boolean addRoom(Customer baru)
     {
         return false;
     }
+    /**
+     * untuk menghapus data ruangan.
+     * 
+     * @return false
+     */
     public static boolean removeRoom(int id)
     {
         return false;
     }
+    /**
+     * untuk mendapatkan database ruangan.
+     * 
+     * @return null
+     */
     public static String[] getRoomDatabase()
     {
         return null;

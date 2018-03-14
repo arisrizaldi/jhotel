@@ -25,7 +25,7 @@ public class Pesanan
         // instance variables
         this.biaya = biaya;
         this.pelanggan = pelanggan;
-        
+        nama_pelanggan = pelanggan.getNama();
     }
 
     /**
@@ -97,9 +97,9 @@ public class Pesanan
      * untuk menentukan nilai pelanggan
      * @param baru.
      */
-    public void setPelanggan(Customer baru)
+    public void setPelanggan(Customer pelanggan)
     {
-        pelanggan = baru;
+        this.pelanggan = pelanggan;
     }
     
     public void setNamaPelanggan(String nama_pelanggan)
@@ -127,9 +127,9 @@ public class Pesanan
      * untuk menentukan nilai statusselesai
      * @param diproses.
      */
-    public void setStatusSelesai(boolean diproses)
+    public void setStatusSelesai(boolean selesai)
     {
-        isSelesai = diproses;
+        isSelesai = selesai;
     }
     public void setRoom(Room kamar)
     {
@@ -141,7 +141,11 @@ public class Pesanan
      */
     public void printData()
     {
-        System.out.println("Nama Pelanggan: "+getNamaPelanggan() + "\nTipe Kamar: "+getTipeKamar() + "\n Status Diproses: "+getStatusDiproses() + "\n Status Selesai: "+getStatusSelesai());
+        System.out.printf("\nPesanan\n");
+        System.out.println("Nama Pelanggan: " +nama_pelanggan);
+        System.out.println("Tipe Kamar: " +tipe_kamar);
+        System.out.println("Status layanan diproses: " +isDiproses);
+        System.out.println("Status layanan selesai: " +isSelesai);
     }
     
     

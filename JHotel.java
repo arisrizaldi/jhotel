@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class JHotel here.
+ * class JHotel sebagai class utama.
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -11,52 +11,58 @@ public class JHotel
    
 
     /**
-     * Constructor for objects of class JHotel
+     * Main method untuk class JHotel.
+     * 
+     * @param args[]
      */
     public static void main(String[] args)
     {
        
-        Lokasi objekLokasi = new Lokasi(10,11,"kota hujan");
-        Hotel objekHotel = new Hotel("Hotel Aris", objekLokasi, 5);
-        Customer objekCustomer = new Customer(1, "Aris");
-        Room objekRoom = new Room(objekHotel, "13", true, objekCustomer, 155000, StatusKamar.Vacant);
-        Pesanan objekPesanan = new Pesanan(555000, objekCustomer);
+        Lokasi lokasi = new Lokasi(10,11,"kota hujan");
+        Customer customer = new Customer(1, "Aris");
+        Hotel hotel = new Hotel("Hotel Aris", lokasi, 5);
+        Room room = new Room(hotel, "13", true, customer, 155000, StatusKamar.Vacant);
+        Pesanan pesan = new Pesanan(555000, customer);
+        pesan.setTipeKamar(TipeKamar.Single);
         
     
-         
-         objekLokasi.printData(); 
-         objekCustomer.printData();
-         objekHotel.printData();
+         System.out.println("Welcome to JHotel");
+         lokasi.printData(); 
+         customer.printData();
+         hotel.printData();
         
-
-        Administrasi.pesananDitugaskan(objekPesanan, objekRoom);
+         System.out.println("\n====================Method 1====================");
         
-        objekPesanan.printData();
-        objekRoom.printData();
+         Administrasi.pesananDitugaskan(pesan, room);
+        room.printData();
+        pesan.printData();
         
-        Administrasi.pesananDibatalkan(objekRoom);
-       objekPesanan.printData();
-        objekRoom.printData();
+        System.out.println("\n====================Method 2====================");
         
         
-        Administrasi.pesananDitugaskan(objekPesanan, objekRoom);
+        Administrasi.pesananDibatalkan(room);
+        room.printData();
+        pesan.printData();
         
-        Administrasi.pesananSelesai(objekRoom);
-        objekPesanan.printData();
-        objekRoom.printData();
+       
+        Administrasi.pesananDitugaskan(pesan, room);
+        System.out.println("\n====================Method 3====================");
+       Administrasi.pesananDibatalkan(pesan);
+        room.printData();
+        pesan.printData();
         
-        Administrasi.pesananDitugaskan(objekPesanan, objekRoom);
+        Administrasi.pesananDitugaskan(pesan, room);
         
-        Administrasi.pesananDibatalkan(objekPesanan);
-        objekPesanan.printData();
-        objekRoom.printData();
+        System.out.println("\n====================Method 4====================");
+        Administrasi.pesananSelesai(room);
+        room.printData();
+        pesan.printData();
         
-        Administrasi.pesananDitugaskan(objekPesanan, objekRoom);
-        
-        Administrasi.pesananSelesai(objekPesanan);
-        objekPesanan.printData();
-        objekRoom.printData();
-        
+        Administrasi.pesananDitugaskan(pesan, room);
+        System.out.println("\n====================Method 5====================");
+        Administrasi.pesananSelesai(pesan);
+        room.printData();
+        pesan.printData();
         
         
         
@@ -65,6 +71,9 @@ public class JHotel
         
 
     }
+    /**
+     * Constructor untuk class JHotel.
+     */
     public JHotel()
     {
         // initialise instance variables

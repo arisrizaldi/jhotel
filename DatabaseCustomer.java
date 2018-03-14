@@ -11,18 +11,37 @@ public class DatabaseCustomer
     private static String[] list_customer;
 
     /**
-     * Constructor for objects of class DatabaseCustomer
+     * untuk menambahkan data customer.
+     * 
+     * @return false
      */
     public static boolean addCustomer(Customer baru)
     {
+        //code
+        
         return false;
     }
+    /**
+     * untuk menghapus data customer.
+     * 
+     * @return false
+     */
     public static boolean removeCustomer(int id)
     {
+        //code
+        
         return false;
     }
+    
+    /**
+     * untuk mendapatkan database customer.
+     * 
+     * @return null
+     */
     public static String[] getCustomerDatabase()
     {
+        //code
+        
         return null;
     }
         

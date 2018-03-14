@@ -12,8 +12,10 @@ public class Customer
     protected String nama;
 
     /**
-     * Constructor for objects of class Customer
-     * @param id, nama.
+     * Constructor for objects of class Customer.
+     * 
+     * @param id
+     * @param nama
      */
     public Customer(int id, String nama)
     {
@@ -67,7 +69,9 @@ public class Customer
      */
     public void printData()
     {
-        System.out.println("ID: "+getID() + "\nNama Pelanggan: "+getNama());
+        System.out.printf("\nCustomer\n");
+        System.out.println("ID: " +id);
+        System.out.println("Nama: " +nama);
     }
     
     

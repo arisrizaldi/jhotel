@@ -11,16 +11,28 @@ public class DatabaseHotel
     private static String[] list_hotel;
 
     /**
-     * Constructor for objects of class DatabaseHotel
+     * untuk menambahkan data hotel.
+     * 
+     * @return false
      */
     public static boolean addHotel(Hotel baru)
     {
         return false;
     }
+    /**
+     * untuk menghapus data hotel.
+     * 
+     * @return false
+     */
     public static boolean removeHotel(int id)
     {
         return false;
     }
+    /**
+     * untuk mendapatkan database hotel.
+     * 
+     * @return null
+     */
     public static String[] getHotelDatabase()
     {
         return null;
