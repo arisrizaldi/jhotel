@@ -5,18 +5,15 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Room
+public abstract class Room
 {
     // instance variables - replace the example below with your own
     private Hotel hotel;
-    private int id;
     private String nomor_kamar;
     private boolean isAvailable;
-    private Customer customer;
-    private double dailyTariff;
     private StatusKamar status_kamar;
     private Pesanan pesan;
-
+    public double dailyTariff;
 
     /**
      * Constructor for objects of class Room.
@@ -29,14 +26,14 @@ public class Room
      * @param status_kamar
      */
     public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, 
-    Customer customer, double dailyTariff, StatusKamar status_kamar)
+    StatusKamar status_kamar)
     {
         // initialise instance variables
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
         this.isAvailable = isAvailable;
-        this.customer = customer;
-        this.dailyTariff = dailyTariff;
+        //this.customer = customer;
+        //this.dailyTariff = dailyTariff;
         this.status_kamar = status_kamar;
     }
     /**
@@ -49,15 +46,7 @@ public class Room
         return hotel;
     }
     
-    /**
-     * untuk mendapatkan nilai id.
-     * 
-     * @return id
-     */
-    public int getID()
-    {
-        return id;
-    }
+    
     
     /**
      * untuk mendapatkan nilai nomor kamar.
@@ -79,15 +68,6 @@ public class Room
         return isAvailable;
     }
     
-    /**
-     * untuk mengetahui data customer.
-     * 
-     * @return customer
-     */
-    public Customer getCustomer()
-    {
-        return customer;
-    }
     
     /**
      * untuk mendapatkan nilai tarif.
@@ -119,6 +99,10 @@ public class Room
         return pesan;
     }
     
+    public abstract TipeKamar getTipeKamar();
+    
+        
+    
     /**
      * untuk menset nilai hotel.
      * 
@@ -129,15 +113,6 @@ public class Room
         this.hotel = hotel;
     }
     
-    /**
-     * untuk menset nilai hotel.
-     * 
-     * @param hotel
-     */
-    public void setID(int id)
-    {
-        this.id = id;
-    }
     
     /**
      * untuk menset nilai hotel.
@@ -159,15 +134,6 @@ public class Room
         this.isAvailable = isAvailable;
     }
     
-    /**
-     * untuk menset nilai customer.
-     * 
-     * @param customer
-     */
-    public void setCustomer(Customer customer)
-    {
-        this.customer = customer;
-    }
     
     /**
      * untuk menset nilai tarif.
@@ -208,9 +174,11 @@ public class Room
         System.out.println("Nama Hotel: " +hotel.getNama());
         System.out.println("Nomor Kamar: " +nomor_kamar);
         System.out.println("Tersedia: " +isAvailable);
-        System.out.println("Pelanggan: " +customer.getNama());
+        
         System.out.println("Harga: " +dailyTariff);
+   
         System.out.println("Status Kamar: " +status_kamar);
+        System.out.println("Status layanan selesai: " +getTipeKamar());
     }
 
     

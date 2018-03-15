@@ -9,9 +9,8 @@ public class Pesanan
 {
     // instance variables - replace the example below with your own
     private double biaya;
+    private double jumlahHari;
     private Customer pelanggan;
-    private String nama_pelanggan;
-    private TipeKamar tipe_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
@@ -20,12 +19,12 @@ public class Pesanan
      * Constructor for objects of class Pesanan
      * @param biaya, pelanggan.
      */
-    public Pesanan(double biaya, Customer pelanggan)
+    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar)
     {
         // instance variables
-        this.biaya = biaya;
+        this.jumlahHari = jumlahHari;
         this.pelanggan = pelanggan;
-        nama_pelanggan = pelanggan.getNama();
+        this.kamar = kamar;
     }
 
     /**
@@ -38,6 +37,11 @@ public class Pesanan
         return biaya;
     }
     
+    public double getjumlahHari()
+    {
+        return jumlahHari;
+    }
+    
     /**
      * Accessor for objects of class Pesanan
      * untuk mendapatkan nilai pelanggan
@@ -48,14 +52,6 @@ public class Pesanan
         return pelanggan;
     }
     
-    public String getNamaPelanggan()
-    {
-        return nama_pelanggan;
-    }
-    public TipeKamar getTipeKamar()
-    {
-        return tipe_kamar;
-    }
     
     /**
      * Accessor for objects of class Pesanan
@@ -87,9 +83,10 @@ public class Pesanan
      * untuk menentukan nilai biaya
      * @param biaya.
      */
-    public void setBiaya(double biaya)
+    public void setBiaya()
     {
-        this.biaya = biaya;
+        
+        biaya = kamar.getDailyTariff()*jumlahHari;
     }
     
     /**
@@ -102,15 +99,7 @@ public class Pesanan
         this.pelanggan = pelanggan;
     }
     
-    public void setNamaPelanggan(String nama_pelanggan)
-    {
-        this.nama_pelanggan = nama_pelanggan;
-    } 
     
-    public void setTipeKamar(TipeKamar tipe_kamar)
-    {
-        this.tipe_kamar = tipe_kamar;
-    }
     
     /**
      * Mutator for objects of class Pesanan
@@ -142,10 +131,13 @@ public class Pesanan
     public void printData()
     {
         System.out.printf("\nPesanan\n");
-        System.out.println("Nama Pelanggan: " +nama_pelanggan);
-        System.out.println("Tipe Kamar: " +tipe_kamar);
+        //System.out.println("Nama Pelanggan: " +nama_pelanggan);
+       
         System.out.println("Status layanan diproses: " +isDiproses);
         System.out.println("Status layanan selesai: " +isSelesai);
+        System.out.println("Jumlah Hari: " +jumlahHari);
+        System.out.println("Biaya: " +biaya);
+        
     }
     
     
