@@ -3,7 +3,7 @@ import java.util.*;
  * Write a description of class Pesanan here.
  *
  * @author (Muhammad Aris Rizaldi_1506673643)
- * @version (2018.03.01)
+ * @version (2018.03.22)
  */
 public class Pesanan
 {
@@ -15,6 +15,7 @@ public class Pesanan
     private boolean isSelesai;
     private Room kamar;
     private Date tanggalPesan;
+    private String string;
 
     /**
      * Constructor for objects of class Pesanan
@@ -22,7 +23,7 @@ public class Pesanan
      */
     public Pesanan(double jumlahHari, Customer pelanggan, Room kamar)
     {
-        // instance variables
+        
         this.jumlahHari = jumlahHari;
         this.pelanggan = pelanggan;
         this.kamar = kamar;
@@ -80,7 +81,8 @@ public class Pesanan
         return kamar;
     }
     
-    public Date getTanggalPesan(){
+    public Date getTanggalPesan()
+    {
         return tanggalPesan;
     }
     
@@ -95,6 +97,10 @@ public class Pesanan
         biaya = kamar.getDailyTariff()*jumlahHari;
     }
     
+    public void setJumlahHari(double jumlahHari)
+    {
+        this.jumlahHari = jumlahHari;
+    }
     /**
      * Mutator for objects of class Pesanan
      * untuk menentukan nilai pelanggan
@@ -130,9 +136,14 @@ public class Pesanan
     {
         this.kamar = kamar;
     }
-
-    
-    
+    public void setTanggalPesan(Date tanggalPesan)
+    {
+        this.tanggalPesan = tanggalPesan;
+    }
+    public String toString()
+    {
+        return string;
+    }
     /**
      * untuk mencetak data
      */

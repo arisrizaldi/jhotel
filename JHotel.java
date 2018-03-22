@@ -1,9 +1,9 @@
-
+import java.util.*;
 /**
  * class JHotel sebagai class utama.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Muhammad Aris Rizaldi_1506673643)
+ * @version (2018.03.22)
  */
 public class JHotel
 {
@@ -13,11 +13,14 @@ public class JHotel
     /**
      * Main method untuk class JHotel.
      * 
-     * @param args[]
+     * @param String[]
      */
     public static void main(String[] args)
     {
-       
+      Customer cust1 = new Customer(13, "Aris", new GregorianCalendar(2018,2,22).getTime());
+      cust1.getDOB();
+        
+        /*modul4
        Lokasi l = new Lokasi(13,13,"Asyik");
         
        Hotel h = new Hotel("Sukasuka",l,3);
@@ -37,7 +40,7 @@ public class JHotel
          //Administrasi.pesananDitugaskan(p,r);
         // r.printData(); 
          //p.printData();
-       
+       */
        
         /*modul3
         Lokasi lokasi = new Lokasi(10,11,"kota hujan");

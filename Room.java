@@ -1,19 +1,19 @@
-
 /**
  * Class Room untuk pendataan ruangan pada JHotel.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Muhammad Aris Rizaldi_1506673643)
+ * @version (2018.03.22)
  */
 public abstract class Room
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private Hotel hotel;
     private String nomor_kamar;
     private boolean isAvailable;
     private StatusKamar status_kamar;
     private Pesanan pesan;
     public double dailyTariff;
+    private String string;
 
     /**
      * Constructor for objects of class Room.
@@ -21,21 +21,17 @@ public abstract class Room
      * @param hotel
      * @param nomor_kamar
      * @param isAvailable
-     * @param customer
-     * @param dailyTariff
      * @param status_kamar
      */
-    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, 
-    StatusKamar status_kamar)
+    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, StatusKamar status_kamar)
     {
         // initialise instance variables
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
         this.isAvailable = isAvailable;
-        //this.customer = customer;
-        //this.dailyTariff = dailyTariff;
         this.status_kamar = status_kamar;
     }
+    
     /**
      * untuk mendapatkan nilai hotel.
      * 
@@ -45,8 +41,6 @@ public abstract class Room
     {
         return hotel;
     }
-    
-    
     
     /**
      * untuk mendapatkan nilai nomor kamar.
@@ -67,7 +61,6 @@ public abstract class Room
     {
         return isAvailable;
     }
-    
     
     /**
      * untuk mendapatkan nilai tarif.
@@ -101,8 +94,6 @@ public abstract class Room
     
     public abstract TipeKamar getTipeKamar();
     
-        
-    
     /**
      * untuk menset nilai hotel.
      * 
@@ -113,11 +104,10 @@ public abstract class Room
         this.hotel = hotel;
     }
     
-    
     /**
-     * untuk menset nilai hotel.
+     * untuk menset nilai nomor kamar.
      * 
-     * @param hotel
+     * @param nomor_kamar
      */
     public void setNomorKamar(String nomor_kamar)
     {
@@ -133,7 +123,6 @@ public abstract class Room
     {
         this.isAvailable = isAvailable;
     }
-    
     
     /**
      * untuk menset nilai tarif.
@@ -165,21 +154,36 @@ public abstract class Room
         this.pesan = pesan;
     }
     
+    public String toString()
+    {
+        if(isAvailable==false){
+            return "\nNama Hotel: "+hotel.getNama()+
+                   "\nTipe Kamar: "+getTipeKamar()+
+                   "\nHarga: "+dailyTariff+
+                   "\nStatus Kamar: "+status_kamar;
+        }
+        else{
+            return "\nNama Hotel: "+hotel.getNama()+
+                   "\nTipe Kamar: "+getTipeKamar()+
+                   "\nHarga: "+dailyTariff+
+                   "\nStatus Kamar: "+status_kamar+
+                   "\nPelanggan: ";
+        }
+    }
+    
+    /*
     /**
      * untuk menampilkan data pada class Room.
-     */
+     
     public void printData()
     {
         System.out.printf("\nRoom\n");
         System.out.println("Nama Hotel: " +hotel.getNama());
         System.out.println("Nomor Kamar: " +nomor_kamar);
         System.out.println("Tersedia: " +isAvailable);
-        
         System.out.println("Harga: " +dailyTariff);
-   
         System.out.println("Status Kamar: " +status_kamar);
-        System.out.println("Status layanan selesai: " +getTipeKamar());
+        System.out.println("Tipe Kamar: " +getTipeKamar());
     }
-
-    
+    */
 }

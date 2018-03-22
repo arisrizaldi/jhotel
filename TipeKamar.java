@@ -10,7 +10,7 @@ public enum TipeKamar
     Single("Single"), Double("Double"), Premium("Premium");
     
     private String deskripsi;
-    private String tipe;
+   
     
     TipeKamar(String deskripsi)
     {

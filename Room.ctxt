@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Room
-comment0.text=\r\n\ Class\ Room\ untuk\ pendataan\ ruangan\ pada\ JHotel.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ Room\ untuk\ pendataan\ ruangan\ pada\ JHotel.\r\n\r\n\ @author\ (Muhammad\ Aris\ Rizaldi_1506673643)\r\n\ @version\ (2018.03.22)\r\n
 comment1.params=hotel\ nomor_kamar\ isAvailable\ status_kamar
 comment1.target=Room(Hotel,\ java.lang.String,\ boolean,\ StatusKamar)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Room.\r\n\ \r\n\ @param\ hotel\r\n\ @param\ nomor_kamar\r\n\ @param\ isAvailable\r\n\ @param\ customer\r\n\ @param\ dailyTariff\r\n\ @param\ status_kamar\r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Room.\r\n\ \r\n\ @param\ hotel\r\n\ @param\ nomor_kamar\r\n\ @param\ isAvailable\r\n\ @param\ status_kamar\r\n
 comment10.params=nomor_kamar
 comment10.target=void\ setNomorKamar(java.lang.String)
-comment10.text=\r\n\ untuk\ menset\ nilai\ hotel.\r\n\ \r\n\ @param\ hotel\r\n
+comment10.text=\r\n\ untuk\ menset\ nilai\ nomor\ kamar.\r\n\ \r\n\ @param\ nomor_kamar\r\n
 comment11.params=isAvailable
 comment11.target=void\ setStatusAvailable(boolean)
 comment11.text=\r\n\ untuk\ menentukan\ status\ ketersediaan\ kamar.\r\n\ \r\n\ @param\ isAvailable\r\n
@@ -20,8 +20,7 @@ comment14.params=pesan
 comment14.target=void\ setPesanan(Pesanan)
 comment14.text=\r\n\ untuk\ menset\ nilai\ pesanan.\r\n\ \r\n\ @param\ pesan\r\n
 comment15.params=
-comment15.target=void\ printData()
-comment15.text=\r\n\ untuk\ menampilkan\ data\ pada\ class\ Room.\r\n
+comment15.target=java.lang.String\ toString()
 comment2.params=
 comment2.target=Hotel\ getHotel()
 comment2.text=\r\n\ untuk\ mendapatkan\ nilai\ hotel.\r\n\ \r\n\ @return\ hotel\r\n

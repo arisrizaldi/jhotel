@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=JHotel
-comment0.text=\r\n\ class\ JHotel\ sebagai\ class\ utama.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ class\ JHotel\ sebagai\ class\ utama.\r\n\r\n\ @author\ (Muhammad\ Aris\ Rizaldi_1506673643)\r\n\ @version\ (2018.03.22)\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ Main\ method\ untuk\ class\ JHotel.\r\n\ \r\n\ @param\ args[]\r\n
+comment1.text=\r\n\ Main\ method\ untuk\ class\ JHotel.\r\n\ \r\n\ @param\ String[]\r\n
 comment2.params=
 comment2.target=JHotel()
 comment2.text=\r\n\ Constructor\ untuk\ class\ JHotel.\r\n

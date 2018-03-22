@@ -1,9 +1,8 @@
-
 /**
  * Class Lokasi berisi tentang data-data Lokasi Hotel.
  *
  * @author (Muhammad Aris Rizaldi_1506673643)
- * @version (2018.03.01)
+ * @version (2018.03.22)
  */
 public class Lokasi
 {
@@ -11,6 +10,7 @@ public class Lokasi
     private float x_coord;
     private float y_coord;
     private String deskripsiLokasi;
+    private String string;
 
     /**
      * Constructor for objects of class Lokasi.
@@ -91,6 +91,13 @@ public class Lokasi
     public void setDeskripsi(String deskripsi)
     {
         deskripsiLokasi = deskripsi;
+    }
+    
+    public String toString()
+    {
+        return"\nKoordinat X: " +x_coord+
+              "Koordinat Y: " +y_coord+
+              "Deskripsi: " +deskripsiLokasi;
     }
     
     /**
