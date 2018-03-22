@@ -22,20 +22,21 @@ public class JHotel
         
        Hotel h = new Hotel("Sukasuka",l,3);
        SingleRoom sr = new SingleRoom(h,"973",true,StatusKamar.Booked);
-       Customer c = new Customer(22,"Aris");
+       //Customer c = new Customer(22,"Aris");
        Room r = sr;
       
+      r.setDailyTariff(15000);
+      
+       //Pesanan p = new Pesanan(3,c,r);
        
-       Pesanan p = new Pesanan(3,c,r);
-       
-       System.out.println("Welcome to JHotel");
-         l.printData(); 
-         c.printData();
-         h.printData();
+       //System.out.println("Welcome to JHotel");
+         //l.printData(); 
+         //c.printData();
+         //h.printData();
          
-         Administrasi.pesananDitugaskan(p,r);
-         r.printData(); 
-         p.printData();
+         //Administrasi.pesananDitugaskan(p,r);
+        // r.printData(); 
+         //p.printData();
        
        
         /*modul3
