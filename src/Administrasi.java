@@ -3,7 +3,7 @@
  * Class Administrasi untuk melakukan kegiatan administrasi JHotel.
  *
  * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @version
  */
 public class Administrasi
 {
