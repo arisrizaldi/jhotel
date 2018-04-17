@@ -1,23 +1,31 @@
 
 /**
- * Enumeration class StatusKamar - berisi status-status kamar pada JHotel.
+ * Enumeration class TipeKamar - Membatasi tipe kamar
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
 public enum StatusKamar
 {
-    Booked("Booked"), Processed("Processed"), Vacant("Vacant");
+    BOOKED("Booked"),PROCESSED("Processed"),VACANT("Vacant");
     
-    private String deskripsi;
+    private final String status;
     
-    StatusKamar(String deskripsi)
-    {
-        this.deskripsi = deskripsi;
+    /**
+     * Constructor StatusKamar
+     * 
+     * @param type merupakan status dalam string
+     */
+    StatusKamar(String status) {
+        this.status=status;
     }
     
-    public String toString()
-    {
-        return deskripsi;
+    /**
+     * toString() - Method pengambilan String
+     * 
+     * @return type mengembalikkan status kamar sebagai string
+     */
+    public String toString() {
+        return this.status;
     }
 }

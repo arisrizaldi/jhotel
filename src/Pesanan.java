@@ -1,18 +1,16 @@
-import java.util.Date;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-//import java.util.regex.*;
-import java.text.*;
 /**
- * class Pesanan untuk memodelkan pesanan.
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ *
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
+
+import java.util.*;
+
 public class Pesanan
 {
-    // instance variables - replace the example below with your own
-    private  int id;
+    //Bagian disini menunjukan Variabel-variabel pada class
+    private int id;
     private double biaya;
     private double jumlahHari;
     private Customer pelanggan;
@@ -21,215 +19,194 @@ public class Pesanan
     private boolean isSelesai;
     private Room kamar;
     private Date tanggalPesan;
-    //private String string;
 
-    public Pesanan()
-    {
-        
-    }
-    
+    //Method Constructor dari Class
     /**
-     * Constructor for objects of class Pesanan.
+     * Ini merupakan Constructor dari Class Pesanan
      * 
-     *
+     * @param jumlahHari merupakan parameter untuk menentukan banyak hari
+     * @param pelanggan merupakan parameter yang akan menunjukan pelanggan yang memesan
      */
-
-    public  Pesanan(double jumlahHari, Customer pelanggan)
-    {
-        this.jumlahHari = jumlahHari;
-        this.pelanggan = pelanggan;
-        isAktif = true;
-        Calendar c = new GregorianCalendar();
-        c.set(Calendar.HOUR_OF_DAY, 0); //anything 0 - 23
-        c.set(Calendar.MINUTE, 0);
-        c.set(Calendar.SECOND, 0);
-        Date d1 = c.getTime(); //the midnight, that's the first second of the day.
-    }
-    /*
-    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar, int tanggal, int bulan, int tahun)
-    {
+    public Pesanan(double jumlahHari,Customer pelanggan) {
         this.jumlahHari = jumlahHari;
         this.pelanggan = pelanggan;
         this.kamar = kamar;
-        biaya = kamar.getDailyTariff()*jumlahHari;
-        this.tanggalPesan = new GregorianCalendar(tahun,bulan,tanggal).getTime();
+        this.biaya = kamar.getDailyTariff()*jumlahHari;
+        this.isAktif = true;
+        this.tanggalPesan = new Date();
+        this.id = DatabasePesanan.getLastPesananID()+1;
     }
-    
-    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar, Date tanggalPesan)
-    {
-        this.jumlahHari = jumlahHari;
-        this.pelanggan = pelanggan;
-        this.kamar = kamar;
-        biaya = kamar.getDailyTariff()*jumlahHari;
-        this.tanggalPesan = tanggalPesan;
-    }
-    */
 
-    public int getId()
-    {
+    //Methode Getter (Accessor) untuk class
+
+
+    public int getID() {
         return id;
     }
 
     /**
-     * Accessor for objects of class Pesanan
-     * untuk mendapatkan nilai biaya.
+     * Ini merupakan Methode untuk mendapatkan biaya dari objek class pesanan
      * 
-     * @return biaya
+     * @return biaya mendapatkan biaya bayar dari pesanan
      */
-    public double getBiaya()
-    {
-        //code
-        
+    public double getBiaya(){
         return biaya;
     }
     
-    public double getJumlahHari()
-    {
-        return jumlahHari;
-    }
-    
-    /**
-     * Accessor for objects of class Pesanan
-     * untuk mendapatkan nilai pelanggan.
+     /**
+     * Ini merupakan Methode untuk mendapatkan pelanggan dari objek class pesanan
      * 
-     * @return pelanggan
+     * @return pelanggan mengembalikkan variabel pelanggan objek class pesanan
      */
-    public Customer getPelanggan()
-    {
-        //code
+    public Customer getPelanggan(){
         return pelanggan;
     }
     
     /**
-     * Accessor for objects of class Pesanan
-     * untuk mendapatkan nilai status diproses.
+     * Ini merupakan Methode untuk mendapatkan Nama pelanggan dari objek class pesanan
      * 
-     * @return isDiproses
+     * @return nama_pelanggan mengembalikkan variabel nama_pelanggan objek class pesanan
      */
-    public boolean getStatusAkrif()
-    {
-        return isAktif;
+    public double getJumlahHari(){
+        return jumlahHari;
     }
-    public boolean getStatusDiproses()
-    {
-        //code
-        
-        return isDiproses;
-    }
+    
     
     /**
-     * Accessor for objects of class Pesanan
-     * untuk mendapatkan nilai status selesai.
+     * Ini merupakan Methode untuk mendapatkan status diproses dari objek class pesanan
      * 
-     * @return isSelesai
+     * @return isDiproses mengembalikkan variabel isDiproses objek class pesanan
      */
-    public boolean getStatusSelesai()
-    {
-        //code
-        
+    public boolean getStatusDiproses(){
+        return isDiproses;
+    }
+
+    public boolean getStatusAktif() {
+        return isAktif;
+    }
+
+    /**
+     * Ini merupakan Methode untuk mendapatkan status proses selesai dari objek class pesanan
+     * 
+     * @return isSelesai mengembalikkan variabel isSelesai objek class pesanan
+     */
+    public boolean getStatusSelesai(){
         return isSelesai;
     }
-    
-    public Room getRoom()
-    {
+
+
+    /**
+     * Ini merupakan Methode untuk mendapatkan object room dari object ini
+     * 
+     * @return kamar merupakan kamar yang akan dikembalikkan
+     */
+    public Room getRoom(){
         return kamar;
     }
     
-    public Date getTanggalPesan()
-    {
-        DateFormat df = new SimpleDateFormat("'DOB : 'dd MMMM yyyy");
-        String hasil = df.format(tanggalPesan);
-        System.out.println(hasil);
+    /**
+     * Ini merupakan Methode untuk mendapatkan Date dari Object ini
+     * 
+     * @return tanggalPesan merupakan tanggal pesanan
+     */
+    public Date getTanggalPesan(){
         return tanggalPesan;
     }
     
-    /**
-     * Mutator for objects of class Pesanan
-     * untuk menentukan nilai biaya.
-     * 
-     *
-     */
-    public void  setId(int id)
-    {
+    //Methode Setter (Mutator) untuk class
+
+
+    public void setID(int id) {
         this.id = id;
     }
-    public void setBiaya()
-    {
-        
-        biaya = kamar.getDailyTariff()*jumlahHari;
-    }
-    
-    public void setJumlahHari(double jumlahHari)
-    {
-        this.jumlahHari = jumlahHari;
+
+    /**
+     * Ini merupakan Methode mutator untuk set nilai biaya
+     * 
+     *
+     *
+     *
+     */
+    public void setBiaya() {
+        this.biaya = kamar.getDailyTariff()*jumlahHari;
     }
     
     /**
-     * Mutator for objects of class Pesanan
-     * untuk menenetukan nilai pelanggan.
+     * Ini merupakan Methode mutator untuk set nilai pelanggan
      * 
-     *
+     * @param baru merupakan variabel yang akan di masukkan pada variable peanggan pada Class
      */
-    public void setPelanggan(Customer pelanggan)
-    {
-        this.pelanggan = pelanggan;
+    public void setPelanggan(Customer baru) {
+        pelanggan=baru;
+    }
+    
+    /**
+     * Ini merupakan Methode mutator untuk set nilai jumlahHari
+     * 
+     * @param jumlahHari merupakan variabel yang akan di masukkan pada variable biaya pada Class
+     */
+    public void setJumlahHari(double jumlahHari) {
+        this.jumlahHari = jumlahHari;
     }
 
+    
+    /**
+     * Ini merupakan Methode mutator untuk set nilai isDiproses
+     * 
+     * @param diproses merupakan variabel yang akan di masukkan pada variable isDiproses pada Class
+     */
+    public void setStatusDiproses(boolean diproses) {
+        isDiproses = diproses;
+    }
+    
+    /**
+     * Ini merupakan Methode mutator untuk set nilai isSelesai
+     * 
+     * @param diproses merupakan variabel yang akan di masukkan pada variable isSelesai pada Class
+     */
+    public void setStatusSelesai(boolean diproses) {
+        isSelesai = diproses;
+    }
 
     public void setStatusAktif(boolean aktif) {
         isAktif = aktif;
     }
 
     /**
-     * Mutator for objects of class Pesanan
-     * untuk menentukan nilai status diproses.
+     * Ini merupakan Methode mutator untuk set Room
      * 
-     * @param diproses
+     * @param kamar merupakan Object yang akan di pasangkan pada object pesanan
      */
-
-    public void setStatusDiproses(boolean diproses)
-    {
-        isDiproses = diproses;
-    }
-    
-    /**
-     * Mutator for objects of class Pesanan
-     * untuk menentukan nilai status selesai.
-     * 
-     *
-     */
-    public void setStatusSelesai(boolean selesai)
-    {
-        isSelesai = selesai;
-    }
-    
-    public void setRoom(Room kamar)
-    {
+    public void setRoom(Room kamar) {
         this.kamar = kamar;
     }
     
-    public void setTanggalPesan(Date tanggalPesan)
-    {
-        
+    /**
+     * Ini merupakan Methode untuk mengset Date dari Object ini
+     * 
+     * @return tanggalPesan merupakan tanggal pesanan
+     * 
+     */
+    public void tanggalPesan(Date tanggalPesan){
         this.tanggalPesan = tanggalPesan;
     }
     
-    public String toString()
-    {
+    //Methode print semua data
+    /**
+     * Merupakan Metod yang akan digunakan untuk mengprint data.
+     * Tipe kamar harus di edit untuk to string, sekarang tidak bisa karena belom di set oleh fungsi - fungsi
+     * Untuk mengurangi permasalah nullexception diberikan try catch.
+     */
+    public String toString() {
         String final_status = "KOSONG";
+        if(isDiproses == true && isSelesai == false) final_status = "DIPROSES";
+        else if(isDiproses == false && isSelesai == false) final_status = "KOSONG";
+        else if(isDiproses == false && isSelesai == true) final_status = "SELESAI";
         
-        if (isDiproses == true && isSelesai == false){
-            final_status = "DIPROSES";
-        } else if (isDiproses == false && isSelesai == false){
-            final_status = "KOSONG";
-        } else if (isDiproses == false && isSelesai == true){
-            final_status = "SELESAI";
-        }
-        
-        return  "Dibuat Oleh " +pelanggan.getNama() +
-                ".Proses booking untuk" +kamar.getHotel()+
-                "Kamar Nomor " + kamar.getNomorKamar()+
-                "dengan tipe kamar yang diinginkan "+kamar.getTipeKamar()+
-                ". Status :" +final_status+ ".";
+        return "Dibuat oleh " + getPelanggan().getNama() 
+            + ". Proses booking untuk " + getRoom().getHotel().getNama() 
+            + "kamar nomor " + getRoom().getNomorKamar() 
+            + "dengan tipe kamar yang diinginkan " + getRoom().getTipeKamar().toString() 
+            + ". Status: " + final_status + ".";
     }
 }

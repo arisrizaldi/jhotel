@@ -1,42 +1,63 @@
+import java.util.ArrayList;
 
 /**
- * berisi database hotel.
+ * Class DatabaseHotel untuk Case Study Praktikum OOP 
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
 public class DatabaseHotel
 {
-    // instance variables - replace the example below with your own
-    private static String[] list_hotel;
+    //Bagian disini menunjukan Variabel-variabel pada class
+    private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<>();
+    private static int LAST_HOTEL_ID = 0;
     
-    /**
-     * untuk menambahkan data hotel.
-     * 
-     * @return false
-     */
-    public static boolean addHotel(Hotel baru)
-    {
-        return false;
+    //Methode bagian sini akan dibenarkan, sampai modul integrasi database dengan java
+    public static ArrayList<Hotel> getHotelDatabase() {
+        return HOTEL_DATABASE;
     }
-    
-    /**
-     * untuk menghapus data hotel.
-     * 
-     * @return false
-     */
-    public static boolean removeHotel(int id)
-    {
-        return false;
+
+    public static int getLastHotelID() {
+        return LAST_HOTEL_ID;
     }
-    
+
     /**
-     * untuk mendapatkan database hotel.
-     * 
-     * @return null
+     * Merupakan metode yang akan digunakan pada link database
+     * dengan Room untuk menambah Rooom kepada database
      */
-    public static String[] getHotelDatabase()
-    {
+    public static boolean addHotel(Hotel baru) {
+        for (Hotel hotel :
+                HOTEL_DATABASE) {
+            if(hotel.getID() == baru.getID()) return false;
+        }
+        HOTEL_DATABASE.add(baru);
+        LAST_HOTEL_ID = baru.getID();
+        return true;
+    }
+
+    public static Hotel getHotel(int id){
+        for (Hotel hotel :
+                HOTEL_DATABASE) {
+            if (hotel.getID() == id) return hotel;
+        }
         return null;
+    }
+    /**
+     * Merupakan metode yang akan digunakan pada link database
+     * dengan Room untuk menghapus Room kepada database
+     */
+    public static boolean removeHotel(int id) {
+        for (Hotel hotel :
+                HOTEL_DATABASE) {
+            if(hotel.getID()==id){
+                for (Room kamar :
+                        DatabaseRoom.getRoomsFromHotel(hotel)) {
+                    DatabaseRoom.removeRoom(hotel, kamar.getNomorKamar());
+                }
+                HOTEL_DATABASE.remove(hotel);
+                return true;
+            }
+        }
+        return false;
     }
 }

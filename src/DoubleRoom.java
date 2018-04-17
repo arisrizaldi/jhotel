@@ -1,42 +1,47 @@
 
 /**
- * Class DoubleRoom untuk tipe room double.
+ * Merupakan subclass room
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
 public class DoubleRoom extends Room
 {
     // instance variables - replace the example below with your own
+    private static TipeKamar TIPE_KAMAR = TipeKamar.DOUBLE;
     private Customer customer2;
-    private static TipeKamar TIPE_KAMAR = TipeKamar.Double;
     
-    public DoubleRoom()
-    {
-        //
+    /**
+     * Constructor for objects of class SingleRoom
+     */
+    public DoubleRoom(Hotel hotel,String nomor_kamar,StatusKamar status_kamar) {
+        super(hotel, nomor_kamar,status_kamar);
     }
     
     /**
-     * Constructor for objects of class DoubleRoom
+     * Method accessor untuk tipe kamar
+     * 
+     * @return TIPE_KAMAR mengembalikkan tipekamar
      */
-    public DoubleRoom(Hotel hotel, String nomor_kamar, StatusKamar status_kamar)
-    {
-        // initialise instance variables
-        super(hotel, nomor_kamar, status_kamar);
-    }
-    
-    public Customer getCustomer2()
-    {
-        return customer2;
-    }
-    
-    public TipeKamar getTipeKamar()
-    {
+    public TipeKamar getTipeKamar(){
         return TIPE_KAMAR;
     }
     
-    public void setCustomer2(Customer customer2)
-    {
+    /**
+     * Method accessor untuk Customer 2
+     * 
+     * @return customer2 mengembalikkan customer kedua dari doubleroom
+     */
+    public Customer getCustomer2(){
+        return customer2;
+    }
+    
+    /**
+     * Method mutator untuk Customer 2
+     * 
+     * @param customer2 mengset nilai customer2
+     */
+    public void setCustomer2(Customer customer2){
         this.customer2 = customer2;
     }
 }

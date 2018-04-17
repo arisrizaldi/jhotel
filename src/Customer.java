@@ -1,158 +1,148 @@
-import java.util.Date;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.regex.*;
-import java.text.*;
+
 /**
- * class Customer untuk memodelkan Customer.
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ *
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
+
+
+import java.util.*;
+import java.text.*;
+
 public class Customer
 {
-    // instance variables - replace the example below with your own
+    //Bagian disini menunjukan Variabel-variabel pada class Customer
     protected int id;
     protected String nama;
     protected String email;
     protected Date dob;
-    private String string;
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
-        Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-        +"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", Pattern.CASE_INSENSITIVE);
     
-    public Customer()
-    {
-        //code
-    }
+    SimpleDateFormat dobformat = new SimpleDateFormat("dd MMMMMMMMM yyyy");
     
+    //Method Constructor dari Class
     /**
-     * Constructor for objects of class Customer.
-     * 
-     * @param id
-     * @param nama
+     * Ini merupakan Constructor dari Class Customer
+     *
      */
-    public Customer(int id, String nama, int tanggal, int bulan, int tahun)
+    public Customer(String nama,int year,int month, int date)
     {
-        this.id = id;
+        this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
-        this.dob = new GregorianCalendar(tahun,bulan,tanggal).getTime();
+        this.dob = new GregorianCalendar(year,month-1,date).getTime();
     }
     
-    
-    public Customer(int id, String nama, Date dob)
+    public Customer(String nama,Date dob)
     {
-        this.id = id;
+        this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
         this.dob = dob;
     }
-
-    /**
-     * Accessor for objects of class Customer
-     * untuk mendapatkan nilai id.
+    
+    //Methode Getter (Accessor) untuk class
+     /**
+     * Ini merupakan Methode untuk mendapatkan ID dari objek
      * 
-     * @return id
+     * @return id merupakan id yang di dapatkan
      */
-    public int getID()
-    {
-        // put your code here
-        
+    public int getID()    {
         return id;
     }
     
     /**
-     * Accessor for objects of class Customer
-     * untuk mendapatkan nilai nama.
+     * Ini merupakan Methode untuk mendapatkan nama dari objek
      * 
-     * @return nama
+     * @return nama merupakan nama yang di dapatkan
      */
-    public String getNama()
-    {
-        //put your code here
-        
+    public String getNama()    {
         return nama;
     }
     
-    public String getEmail()
-    {
+    /**
+     * Ini merupakan Methode untuk mendapatkan email dari pelanggan
+     * 
+     * @return email merupakan email yang di dapatkan
+     */
+    public String getEmail()    {
         return email;
     }
     
-    public Date getDOB()
-    {
-        
-        DateFormat df = new SimpleDateFormat("'DOB : 'dd MMMM yyyy");
-        String hasil = df.format(dob);
-        System.out.printf(hasil);
-        
+    /**
+     * Ini merupakan Methode untuk mendapatkan DOB dari pelanggan
+     * 
+     * @return dob merupakan email yang di dapatkan
+     */
+    public Date getDOB() {
+        //System.out.printf("DOB: %te %<tB %<tY",dob);
+        //System.out.println("DOB: " + dobformat.format(dob));
         return dob;
     }
     
+    //Methode Setter (Mutator) untuk class
     /**
-     * Mutator for objects of class Customer
-     * untuk menentukan nilai id.
+     * Ini merupakan Methode mutator untuk set nilai id
      * 
-     * @param id
+     * @param id merupakan id yang dimasukkan
      */
-    public void setID(int id)
-    {
-       this.id = id;
+    public void setID(int id) {
+        this.id = id;
     }
     
     /**
-     * Mutator for objects of class Customer
-     * untuk menentukan nilai id.
+     * Ini merupakan Methode mutator untuk set nama
      * 
-     * @param nama
+     * @param nama merupakan nama Customer yang dimasukkan
      */
-    public void setNama(String nama)
-    {
+    public void setNama(String nama){
         this.nama = nama;
     }
     
-    public void setEmail(String email)
-    {
-        
-        //Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email)
-        if(validate(email) == true)
-        {
+    /**
+     * Ini merupakan Methode untuk mengubah email dari pelanggan
+     * 
+     * @param email mengubah email dari instansi object
+     */
+    public void setEmail(String email){
+        if (email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
+            System.out.println("Email valid");
             this.email = email;
-            System.out.println("Email: "+email+" valid");
-        }else{
-            this.email = email;
-            System.out.println("Email: "+email+" tidak valid");
+        }
+        else {
+            System.out.println("Email tidak valid");
         }
     }
     
-    public static boolean validate(String emailStr) 
-    {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
-        return matcher.find();
-    }
-    
-    public void setDOB(Date dob)
-    {
+    /**
+     * Ini merupakan Methode untuk mengubah DOB dari pelanggan
+     * 
+     * @param dob mengubah date of birth dari instansi object
+     */
+    public void setDOB(Date dob){
         this.dob = dob;
     }
     
-    public String toString()
-    {
-        if(true){
-            return "\nCustomer\n"+
-                   "\nCustomer ID   : " +id+
-                   "\nName          : " +nama+
-                   "\nE-Mail        : " +email+
-                   "\nDate of Birth : " +getDOB()+
-                   "\nBooking order is in progress";        
+    //Methode print semua data
+    /**
+     * Merupakan Metod yang akan digunakan untuk mengprint data.
+     */
+    public String toString() {
+        if(DatabasePesanan.getPesananAktif(this)==null)
+        {
+            return "\nCustomer ID \t:" + getID() 
+                + "\nName \t\t:" + getNama()
+                + "\nE-Mail \t\t:" + getEmail()
+                + "\nDate of Birth \t:" + dobformat.format(getDOB());
         }
-       
-        else{
-            return "\nCustomer\n"+
-                   "\nCustomer ID   : " +id+
-                   "\nName          : " +nama+
-                   "\nE-Mail        : " +email+
-                   "\nDate of Birth : " +getDOB();        
+        else 
+        {
+            return "\nCustomer ID \t:" + getID() 
+                + "\nName \t\t:" + getNama()
+                + "\nE-Mail \t\t:" + getEmail()
+                + "\nDate of Birth \t:" + dobformat.format(getDOB())
+                + "\nBooking Order is in progress";
         }
-        //return string;
+        
     }
+    
 }

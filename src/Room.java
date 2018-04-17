@@ -1,186 +1,135 @@
 
 /**
- * Class Room untuk pendataan ruangan pada JHotel.
+ * Class untuk objek objek Room
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
 public abstract class Room
 {
     // instance variables
     private Hotel hotel;
     private String nomor_kamar;
-    //private boolean isAvailable;
+    protected double dailyTariff;
     private StatusKamar status_kamar;
-    private Pesanan pesan;
-    public double dailyTariff;
-    //private String string;
     
-    public Room()
+    /**
+     * Constructor for objects of class Room
+     */
+    public Room(Hotel hotel,String nomor_kamar,StatusKamar status_kamar)
     {
-        //
+        this.hotel = hotel;
+        this.nomor_kamar = nomor_kamar;
+        this.status_kamar = StatusKamar.VACANT;
     }
 
-    public Room(Hotel hotel, String nomor_kamar, StatusKamar status_kamar)
-    {
-        this.hotel = hotel;
-        this.nomor_kamar = nomor_kamar;
-        this.status_kamar = status_kamar;
-    }
-    /*
     /**
-     * Constructor for objects of class Room.
-     * 
-     * @param hotel
-     * @param nomor_kamar
-     * @param isAvailable
-     * @param status_kamar
+     * Metode Accessor untuk Hotel
+     *
+     * @return Object Hotel
      */
-    /*
-    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, StatusKamar status_kamar)
-    {
-        // initialise instance variables
-        this.hotel = hotel;
-        this.nomor_kamar = nomor_kamar;
-        this.isAvailable = isAvailable;
-        this.status_kamar = status_kamar;
-    }
-    */
-    /**
-     * untuk mendapatkan nilai hotel.
-     * 
-     * @return hotel
-     */
-    public Hotel getHotel()
-    {
+    public Hotel getHotel(){
         return hotel;
     }
     
+    
     /**
-     * untuk mendapatkan nilai nomor kamar.
-     * 
-     * @return nomor_kamar
+     * Method Accessor untuk Nomor Kamar
+     *
+     * @return Nomor Kamar
      */
-    public String getNomorKamar()
-    {
+    public String getNomorKamar()    {
         return nomor_kamar;
     }
 
     /**
-     * untuk mengetahui status ketersediaan kamar.
+     * Method Accessor untuk Tarif perhari
      *
-     * @return isAvailable
+     * @return Tarif perhari
      */
-
-    
-    /**
-     * untuk mendapatkan nilai tarif.
-     * 
-     * @return dailyTariff
-     */
-    public double getDailyTariff()
-    {
+    public double getDailyTariff() {
         return dailyTariff;
     }
     
     /**
-     * untuk mengetahui status kamar.
-     * 
-     * @return status_kamar
+     * Method Accessor untuk Status Kamar
+     *
+     * @return Status kamar berdasarkan enum
      */
-    public StatusKamar getStatusKamar()
-    {
+    public StatusKamar getStatusKamar() {
         return status_kamar;
     }
 
     /**
-     * untuk mendapatkan nilai pesanan.
+     * Method Abstract method untuk tipeKamar
      *
-     * @return pesan
+     * @return TipeKamar
      */
-    public Pesanan getPesanan()
-    {
-        return pesan;
-    }
-    
     public abstract TipeKamar getTipeKamar();
+
     
     /**
-     * untuk menset nilai hotel.
-     * 
-     * @param hotel
+     * Method Mutator untuk Hotel
+     *
+     * @param hotel object hotel
      */
-    public void setHotel(Hotel hotel)
-    {
+    public void setHotel(Hotel hotel)    {
         this.hotel = hotel;
     }
     
+    
     /**
-     * untuk menset nilai nomor kamar.
-     * 
-     * @param nomor_kamar
+     * Method Mutator untuk NomorKamar
+     *
+     * @param nomor_kamar untuk nomorkamar
      */
-    public void setNomorKamar(String nomor_kamar)
-    {
+    public void setNomorKamar(String nomor_kamar)    {
         this.nomor_kamar = nomor_kamar;
     }
 
     /**
-     * untuk menentukan status ketersediaan kamar.
+     * Method Mutator untuk DailyTariff
      *
-     * @param isAvailable
+     * @param dailytariff untuk set daily tariff
      */
-
-
-    /**
-     * untuk menset nilai tarif.
-     * 
-     * @param dailytariff
-     */
-    public void setDailyTariff(double dailytariff)
-    {
-        dailyTariff = dailytariff;
+    public void setDailyTariff(double dailytariff){
+        this.dailyTariff = dailytariff;
     }
     
     /**
-     * untuk menset nilai status kamar.
-     * 
-     * @param status_kamar
+     * Method Mutator untuk Status Kamar
+     *
+     * @param status_kamar untuk mengganti status kamar
      */
-    public void setStatusKamar(StatusKamar status_kamar)
-    {
+    public void setStatusKamar(StatusKamar status_kamar)    {
         this.status_kamar = status_kamar;
     }
     
-    /**
-     * untuk menset nilai pesanan.
-     *
-     * @param pesan
-     */
-    public void setPesanan(Pesanan pesan)
-    {
-        this.pesan = pesan;
-    }
+
     
+    /**
+     * Method untuk mengprint semua data pada class
+     * 
+     * 
+     */
     public String toString()
     {
-        return null;
-        /*
-        if(isAvailable==true){
-            return "\nRoom\n"+
-                   "\nNama Hotel    : "+hotel.getNama()+
-                   "\nTipe Kamar    : "+getTipeKamar()+
-                   "\nHarga         : "+dailyTariff+
-                   "\nStatus Kamar  : "+status_kamar;
+        if(DatabasePesanan.getPesanan(this) == null)
+        {
+            return "\nNama Hotel \t\t:" + getHotel().getNama()
+                    + "\nTipe Kamar \t\t:" + getTipeKamar()
+                    + "\nHarga \t\t:" + getDailyTariff()
+                    + "\nStatus Kamar \t\t:" + getStatusKamar().toString();
         }
-        else{
-            return "\nRoom\n"+
-                   "\nNama Hotel    : "+hotel.getNama()+
-                   "\nTipe Kamar    : "+getTipeKamar()+
-                   "\nHarga         : "+dailyTariff+
-                   "\nStatus Kamar  : "+status_kamar+
-                   "\nPelanggan     : ";
+        else
+        {
+            return "\nNama Hotel \t\t:" + getHotel().getNama()
+                    + "\nTipe Kamar \t\t:" + getTipeKamar()
+                    + "\nHarga \t\t:" + getDailyTariff()
+                    + "\nStatus Kamar \t\t:" + getStatusKamar().toString()
+                    + "Pelanggan \t\t:" + DatabasePesanan.getPesanan(this).getPelanggan().getNama();
         }
-        */
     }
+    
+    
 }

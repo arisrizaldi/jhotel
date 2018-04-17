@@ -1,48 +1,66 @@
+import java.util.ArrayList;
 
 /**
- * berisi Database Customer.
+ * Class DatabaseCustomer untuk Case Study Praktikum OOP
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
 public class DatabaseCustomer
 {
-    // instance variables - replace the example below with your own
-    private static Customer list_customer;
-   
-    /**
-     * untuk menambahkan data customer.
-     * 
-     * @return false
-     */
-    public static boolean addCustomer(Customer baru)
-    {
-        //code
-        
-        return false;
+    //Bagian disini menunjukan Variabel-variabel pada class
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
+    private static int LAST_CUSTOMER_ID = 0;
+    //Methode bagian sini akan dibenarkan, sampai modul integrasi database dengan java
+
+    public static ArrayList<Customer> getCustomerDatabase(){
+        return CUSTOMER_DATABASE;
     }
-    
-    /**
-     * untuk menghapus data customer.
-     * 
-     * @return false
-     */
-    public static boolean removeCustomer(int id)
-    {
-        //code
-        
-        return false;
+
+    public static int getLastCustomerID() {
+        return LAST_CUSTOMER_ID;
     }
-    
+
+
     /**
-     * untuk mendapatkan database customer.
-     * 
-     * @return null
+     * Merupakan metode yang akan digunakan pada link database
+     * dengan customer untuk menambah customer kepada database
      */
-    public static String[] getCustomerDatabase()
-    {
-        //code
-        
+    public static boolean addCustomer(Customer baru) {
+        for (Customer cust :
+                CUSTOMER_DATABASE) {
+            if(cust.getID() == baru.getID()) return false;
+        }
+        CUSTOMER_DATABASE.add(baru);
+        LAST_CUSTOMER_ID = baru.getID();
+        return true;
+    }
+
+    public static Customer getCustomer(int id){
+        for (Customer cust :
+                CUSTOMER_DATABASE) {
+            if (cust.getID() == id) return cust;
+        }
         return null;
     }
+    
+    /**
+     * Merupakan metode yang akan digunakan pada link database
+     * dengan customer untuk menghapus customer kepada database
+     */
+    public static boolean removeCustomer(int id) {
+        for (Customer cust :
+                CUSTOMER_DATABASE) {
+            if(cust.getID()==id){
+                for (Pesanan pesan :
+                        DatabasePesanan.getPesananDatabase()) {
+                    if(pesan.getPelanggan().equals(cust)) DatabasePesanan.removePesanan(pesan);
+                }
+                CUSTOMER_DATABASE.remove(cust);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

@@ -1,31 +1,29 @@
 
 /**
- * Class SingleRoom untuk tipe room single.
+ * Merupakan subclass room
  *
- * @author Muhammad Aris Rizaldi_1506673643
- * @version 2018.04.12
+ * @author Muhammad Aris Rizaldi 1506673643
+ * @version 18/04/2018
  */
 public class SingleRoom extends Room
 {
-    // instance variables - replace the example below with your ow
-    private static TipeKamar TIPE_KAMAR = TipeKamar.Single;
-    
-    public SingleRoom()
-    {
-        //
-    }
-    
+    // instance variables - replace the example below with your own
+    private static TipeKamar TIPE_KAMAR = TipeKamar.SINGLE;
+
     /**
      * Constructor for objects of class SingleRoom
      */
-    public SingleRoom(Hotel hotel, String nomor_kamar, StatusKamar status_kamar)
-    {
-        // initialise instance variables
+    public SingleRoom(Hotel hotel,String nomor_kamar,StatusKamar status_kamar) {
         super(hotel, nomor_kamar, status_kamar);
+        
     }
     
-    public TipeKamar getTipeKamar()
-    {
+    /**
+     * Method accessor untuk tipe kamar
+     * 
+     * @return TIPE_KAMAR mengembalikkan tipekamar
+     */
+    public TipeKamar getTipeKamar(){
         return TIPE_KAMAR;
     }
 }
