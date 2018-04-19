@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 /**
- * Class DatabaseCustomer untuk Case Study Praktikum OOP
+ * Class DatabaseCustomer
  *
- * @author Muhammad Aris Rizaldi 1506673643
- * @version 18/04/2018
+ * @author
+ * @version
  */
 public class DatabaseCustomer
 {
@@ -30,6 +30,8 @@ public class DatabaseCustomer
         for (Customer cust :
                 CUSTOMER_DATABASE) {
             if(cust.getID() == baru.getID()) return false;
+            else
+            if (cust.getEmail() == baru.getEmail()) return false;
         }
         CUSTOMER_DATABASE.add(baru);
         LAST_CUSTOMER_ID = baru.getID();
@@ -43,7 +45,7 @@ public class DatabaseCustomer
         }
         return null;
     }
-    
+
     /**
      * Merupakan metode yang akan digunakan pada link database
      * dengan customer untuk menghapus customer kepada database
