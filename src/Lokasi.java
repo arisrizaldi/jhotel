@@ -2,8 +2,8 @@
 /**
  * Class Lokasi buat Tugas Case Study OOP
  *
- * @author Muhammad Aris Rizaldi 1506673643
- * @version 18/04/2018
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
  */
 public class Lokasi
 {
@@ -89,9 +89,9 @@ public class Lokasi
      * Merupakan Metod yang akan digunakan untuk mengprint data.
      */
     public String toString(){
-        return "Koordinasi X \t\t:" + getX() 
-            + "\nKoordinasi Y \t\t:" + getY() 
-            + "\nDeskripsi Lokasi\t\t:" + getDeskripsi();
+        return "X: " + getX()
+            + "\tY: " + getY()
+            + "\tDeskripsi Lokasi: " + getDeskripsi();
     }
     
 }

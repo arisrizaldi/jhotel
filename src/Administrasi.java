@@ -2,8 +2,8 @@
 /**
  * Class Administrasi dan fungsi method yang penting
  *
- * @author Muhammad Aris Rizaldi 1506673643
- * @version 18/04/2018
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
  */
 public class Administrasi
 {

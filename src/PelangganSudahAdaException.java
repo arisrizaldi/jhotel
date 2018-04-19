@@ -1,12 +1,18 @@
-public class PelangganSudahAdaException extends Exception {
+/**
+ * Class Exception ada Pelanggan
+ *
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
+ */
+public class PelangganSudahAdaException extends Exception{
+   private Customer pelanggan_error;
 
-    private Customer pelanggan_error;
-
-    public PelangganSudahAdaException(Customer pelanggan_input) {
+    public PelangganSudahAdaException(Customer pelanggan_input){
         super("Pelanggan dengan data: ");
-        this.pelanggan_error=pelanggan_input;
+        pelanggan_error = pelanggan_input;
     }
+
     public String getPesan(){
-        return super.getMessage() + pelanggan_error + " sudah terdaftar";
+        return super.getMessage() + pelanggan_error +" sudah terdaftar.";
     }
 }

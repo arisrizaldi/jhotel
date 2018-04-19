@@ -3,8 +3,8 @@
  * Class Hotel buat Tugas Case Study OOP
  * Telah di update untuk Modul 2
  *
- * @author Muhammad Aris Rizaldi 1506673643
- * @version 18/04/2018
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
  */
 public class Hotel
 {
@@ -103,9 +103,9 @@ public class Hotel
      * Merupakan Metod yang akan digunakan untuk mengprint data.
      */
     public String toString(){
-        return "Nama Hotel \t\t:" + getNama() 
-            +"\nBintang Hotel \t\t:" + getBintang() 
-            + "\nLokasi Hotel \t\t:" + getLokasi().getDeskripsi();
+        return "Hotel: " + getNama()
+            +"\tBintang: " + getBintang()
+            + "\tLokasi: " + getLokasi().getDeskripsi()+"\n";
     }
     
     

@@ -2,8 +2,8 @@
 /**
  * Merupakan subclass room
  *
- * @author Muhammad Aris Rizaldi 1506673643
- * @version 18/04/2018
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
  */
 public class DoubleRoom extends Room
 {
@@ -14,8 +14,8 @@ public class DoubleRoom extends Room
     /**
      * Constructor for objects of class SingleRoom
      */
-    public DoubleRoom(Hotel hotel,String nomor_kamar,StatusKamar status_kamar) {
-        super(hotel, nomor_kamar,status_kamar);
+    public DoubleRoom(Hotel hotel,String nomor_kamar) {
+        super(hotel, nomor_kamar);
     }
     
     /**

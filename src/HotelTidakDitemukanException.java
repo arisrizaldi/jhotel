@@ -1,12 +1,18 @@
-public class HotelSudahAdaException extends Exception {
+/**
+ * Class Exception TidakDitemukan
+ *
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
+ */
+public class HotelTidakDitemukanException extends Exception{
+    private int hotel_error;
 
-    private Hotel hotel_error;
-
-    public HotelSudahAdaException(Hotel hotel_input) {
-        super("Hotel dengan nama: ");
-        this.hotel_error=hotel_input;
+    public HotelTidakDitemukanException(int hotel_input){
+        super("Hotel dengan ID : ");
+        hotel_error = hotel_input;
     }
+
     public String getPesan(){
-        return super.getMessage() + hotel_error.getNama() + " sudah terdaftar. ";
+        return super.getMessage() + hotel_error +" tidak ditemukan.";
     }
 }

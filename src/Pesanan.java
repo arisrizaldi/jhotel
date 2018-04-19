@@ -1,8 +1,8 @@
 /**
+ * Class Pesanan Tugas Case Study Prak OOP
  *
- *
- * @author Muhammad Aris Rizaldi 1506673643
- * @version 18/04/2018
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
  */
 
 import java.util.*;
@@ -30,8 +30,8 @@ public class Pesanan
     public Pesanan(double jumlahHari,Customer pelanggan) {
         this.jumlahHari = jumlahHari;
         this.pelanggan = pelanggan;
-        this.kamar = kamar;
-        this.biaya = kamar.getDailyTariff()*jumlahHari;
+        //this.kamar = kamar;
+        //this.biaya = kamar.getDailyTariff()*jumlahHari;
         this.isAktif = true;
         this.tanggalPesan = new Date();
         this.id = DatabasePesanan.getLastPesananID()+1;
@@ -202,11 +202,16 @@ public class Pesanan
         if(isDiproses == true && isSelesai == false) final_status = "DIPROSES";
         else if(isDiproses == false && isSelesai == false) final_status = "KOSONG";
         else if(isDiproses == false && isSelesai == true) final_status = "SELESAI";
-        
-        return "Dibuat oleh " + getPelanggan().getNama() 
-            + ". Proses booking untuk " + getRoom().getHotel().getNama() 
-            + "kamar nomor " + getRoom().getNomorKamar() 
-            + "dengan tipe kamar yang diinginkan " + getRoom().getTipeKamar().toString() 
-            + ". Status: " + final_status + ".";
+
+        if(getRoom()==null){
+            return "\nPelanggan:" + getPelanggan().getNama()
+                    + "\tstatus:" + final_status;
+        }
+
+        return "\npelanggan: " + getPelanggan().getNama()
+            + "\thotel: " + getRoom().getHotel().getNama()
+            + "\tkamar: "  + getRoom().getNomorKamar()
+            + "\ttipeKamar: " + getRoom().getTipeKamar().toString()
+            + "\tStatus: " + final_status + ".";
     }
 }

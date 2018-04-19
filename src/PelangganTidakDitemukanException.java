@@ -1,12 +1,18 @@
-public class PelangganTidakDitemukanException extends Exception {
+/**
+ * Class Exception TidakDitemukan
+ *
+ * @author Muhammad Aris Rizaldi
+ * @version 19/4/2018
+ */
+public class PelangganTidakDitemukanException extends Exception{
+    private int pelanggan_error;
 
-    private Customer pelanggan_error;
-
-    public PelangganTidakDitemukanException (Customer pelanggan_input) {
-        super("Data Customer dengan ID: ");
-        this.pelanggan_error=pelanggan_input;
+    public PelangganTidakDitemukanException(int pelanggan_input){
+        super("Data Customer dengan ID ");
+        pelanggan_error = pelanggan_input;
     }
+
     public String getPesan(){
-        return super.getMessage() + pelanggan_error + " tidak ditemukan. ";
+        return super.getMessage() + pelanggan_error +" tidak ditemukan.";
     }
 }
