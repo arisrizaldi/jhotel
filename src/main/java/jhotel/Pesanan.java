@@ -3,7 +3,7 @@ package jhotel;
  * Class Pesanan Tugas Case Study Prak OOP
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ *  @version 26/4/2018
  */
 
 import java.util.*;
@@ -188,7 +188,7 @@ public class Pesanan
      * @return tanggalPesan merupakan tanggal pesanan
      * 
      */
-    public void tanggalPesan(Date tanggalPesan){
+    public void setTanggalPesan(Date tanggalPesan){
         this.tanggalPesan = tanggalPesan;
     }
     

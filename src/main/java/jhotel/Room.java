@@ -1,9 +1,10 @@
 package jhotel;
+
 /**
  * Class untuk objek objek Room
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version 26/4/2018
  */
 public abstract class Room
 {
@@ -12,7 +13,7 @@ public abstract class Room
     private String nomor_kamar;
     protected double dailyTariff;
     private StatusKamar status_kamar;
-    
+
     /**
      * Constructor for objects of class Room
      */
@@ -31,8 +32,8 @@ public abstract class Room
     public Hotel getHotel(){
         return hotel;
     }
-    
-    
+
+
     /**
      * Method Accessor untuk Nomor Kamar
      *
@@ -50,7 +51,7 @@ public abstract class Room
     public double getDailyTariff() {
         return dailyTariff;
     }
-    
+
     /**
      * Method Accessor untuk Status Kamar
      *
@@ -67,7 +68,7 @@ public abstract class Room
      */
     public abstract TipeKamar getTipeKamar();
 
-    
+
     /**
      * Method Mutator untuk Hotel
      *
@@ -76,8 +77,8 @@ public abstract class Room
     public void setHotel(Hotel hotel)    {
         this.hotel = hotel;
     }
-    
-    
+
+
     /**
      * Method Mutator untuk NomorKamar
      *
@@ -95,7 +96,7 @@ public abstract class Room
     public void setDailyTariff(double dailytariff){
         this.dailyTariff = dailytariff;
     }
-    
+
     /**
      * Method Mutator untuk Status Kamar
      *
@@ -104,32 +105,32 @@ public abstract class Room
     public void setStatusKamar(StatusKamar status_kamar)    {
         this.status_kamar = status_kamar;
     }
-    
 
-    
+
+
     /**
      * Method untuk mengprint semua data pada class
-     * 
-     * 
+     *
+     *
      */
     public String toString()
     {
-        if(DatabasePesanan.getPesanan(this) == null)
+        if(DatabasePesanan.getPesananAktif(this) == null)
         {
-            return "Hotel: " + getHotel().getNama()
-                    + "\tTipeKamar: " + getTipeKamar()
-                    + "\tHarga: " + getDailyTariff()
-                    + "\tStatusKamar:" + getStatusKamar().toString() + "\n";
+            return "\nNama Hotel \t\t:" + getHotel().getNama()
+                    + "\nTipe Kamar \t\t:" + getTipeKamar()
+                    + "\nHarga \t\t:" + getDailyTariff()
+                    + "\nStatus Kamar \t\t:" + getStatusKamar().toString();
         }
         else
         {
-            return "Hotel: " + getHotel().getNama()
-                    + "\tTipeKamar: " + getTipeKamar()
-                    + "\tHarga:" + getDailyTariff()
-                    + "\tStatus Kamar: " + getStatusKamar().toString()
-                    + "Pelanggan: " + DatabasePesanan.getPesanan(this).getPelanggan().getNama() + "\n";
+            return "\nNama Hotel \t\t:" + getHotel().getNama()
+                    + "\nTipe Kamar \t\t:" + getTipeKamar()
+                    + "\nHarga \t\t:" + getDailyTariff()
+                    + "\nStatus Kamar \t\t:" + getStatusKamar().toString()
+                    + "Pelanggan \t\t:" + DatabasePesanan.getPesananAktif(this).getPelanggan().getNama();
         }
     }
-    
-    
+
+
 }

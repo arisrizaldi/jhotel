@@ -1,6 +1,9 @@
 package jhotel;
+
+import jdk.net.SocketFlow;
+
 /**
- * Class Administrasi dan fungsi method yang penting
+ * Class Administrasi
  *
  * @author Muhammad Aris Rizaldi
  * @version 19/4/2018
@@ -21,47 +24,56 @@ public class Administrasi
      * Methode administratif untuk memproses ruangan yang akan di assign
      * kepada kamar tertentu
      */
-    public static void pesananDitugaskan(Pesanan pesan, Room kamar)
-    {
-        pesan.setStatusSelesai(false);
-        pesan.setStatusDiproses(true);
-        pesan.setRoom(kamar);
-        DatabaseRoom.getRoom(kamar.getHotel(),kamar.getNomorKamar()).setStatusKamar(StatusKamar.BOOKED);
-        
+    public static void pesananDitugaskan(Pesanan pesan, Room kamar) {
+        if (kamar.getStatusKamar() == StatusKamar.VACANT)
+        {
+            pesan.setStatusSelesai(false);
+            pesan.setStatusDiproses(true);
+            pesan.setRoom(kamar);
+            kamar.setStatusKamar(StatusKamar.BOOKED);
+            //DatabaseRoom.getRoom(kamar.getHotel(),kamar.getNomorKamar()).setStatusKamar(StatusKamar.BOOKED);
+
+        }
+        else
+
+            pesan.setStatusAktif(false);
     }
 
-    
+
+
+
+
     /**
      * Methode administratif untuk mengubah status pesanan dan status room dan unlink
      */
     public static void pesananDibatalkan(Room kamar)
     {
-        Pesanan pesan = DatabasePesanan.getPesanan(kamar);
-        if(pesan != null) {
-            pesan.setStatusSelesai(false);
-            pesan.setStatusDiproses(false);
-            pesan.setRoom(null);
-        }
+        //    Pesanan pesan = DatabasePesanan.getPesanan(kamar);
+        //  if(pesan != null) {
+        //    pesan.setStatusSelesai(false);
+        //  pesan.setStatusDiproses(false);
+
+        //}
         DatabaseRoom.getRoom(kamar.getHotel(), kamar.getNomorKamar()).setStatusKamar(StatusKamar.VACANT);
-        
+
     }
-    
+
     /**
      * Methode administratif untuk mengubah status pesanan dan status room dan unlink
      */
     public static void pesananSelesai(Room kamar) {
-        Pesanan pesan = DatabasePesanan.getPesanan(kamar);
-        if(pesan != null) {
-            pesan.setStatusSelesai(true);
-            pesan.setStatusDiproses(false);
-            pesan.setRoom(null);
-        }
+        //   Pesanan pesan = DatabasePesanan.getPesanan(kamar);
+        // if(pesan != null) {
+        //   pesan.setStatusSelesai(true);
+        // pesan.setStatusDiproses(false);
+
+        //}
         DatabaseRoom.getRoom(kamar.getHotel(), kamar.getNomorKamar()).setStatusKamar(StatusKamar.VACANT);
     }
-    
+
     /**
-     * Methode administratif untuk mengubah 
-     * status pesanan dan status room yang telah membatalkan 
+     * Methode administratif untuk mengubah
+     * status pesanan dan status room yang telah membatalkan
      * pesanan serta me-unlink masing-masing objek.
      */
     public static void pesananDibatalkan(Pesanan pesan)
@@ -70,11 +82,11 @@ public class Administrasi
         pesan.setStatusSelesai(false);
         pesan.setStatusDiproses(false);
         pesan.setStatusAktif(false);
-        pesan.setRoom(null);
+
     }
-    
+
     /**
-     * Method ini untuk mengubah status pesanan dan status room 
+     * Method ini untuk mengubah status pesanan dan status room
      * yang telah menyelesaikan
      * pesanan serta me-unlink masing-masing objek.
      */
@@ -84,7 +96,7 @@ public class Administrasi
         pesan.setStatusSelesai(true);
         pesan.setStatusDiproses(false);
         pesan.setStatusAktif(false);
-        pesan.setRoom(null);   
+
     }
-    
+
 }

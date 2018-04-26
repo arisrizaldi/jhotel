@@ -1,34 +1,30 @@
-
 package jhotel.controller;
-import jhotel.*;
+import jhotel.Customer;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import  jhotel.DatabaseCustomer;
+import sun.security.util.Password;
 
 
 @RestController
 public class CustomerController {
 
     @RequestMapping("/")
-    public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
+    public String indexPage(@RequestParam(value = "name", defaultValue = "world") String name) {
         return "Hello " + name;
     }
 
     @RequestMapping(value = "/newcustomer", method = RequestMethod.POST)
-    public Customer newCust(@RequestParam(value="name") String name,@RequestParam(value="bulan") int bulan,@RequestParam(value="tanggal") int tanggal,
-                            @RequestParam(value="email") String email) {
-        Customer customer = new Customer(name,2000,bulan,tanggal, email);
+    public Customer newCust(@RequestParam(value = "name") String name, @RequestParam(value = "email") String email,
+                            @RequestParam(value = "password") String password) {
+        Customer customer = new Customer(name, 2000, 10, 10, email, password);
         try {
             DatabaseCustomer.addCustomer(customer);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.getMessage();
             return null;
-        };
+        }
+        ;
+
         return customer;
     }
 
@@ -38,4 +34,12 @@ public class CustomerController {
         return customer;
     }
 
+    public Customer loginCust(String email, String password) {
+        for (Customer pelanggan : DatabaseCustomer.getCustomerDatabase()) {
+            if (pelanggan.getEmail() == email && pelanggan.getPassword() == password) {
+                return pelanggan;
+            }
+        }
+        return null;
+    }
 }

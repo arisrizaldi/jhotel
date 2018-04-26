@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Class Hotel
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version 26/4/2018
  */
 
 
@@ -20,8 +20,21 @@ public class JHotel
      * 
      * @param args argumen untuk main
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RoomSudahAdaException, HotelSudahAdaException {
         SpringApplication.run(JHotel.class, args);
+        Lokasi siji = new Lokasi ( 6, 6, "Surga");
+        Lokasi loro = new Lokasi ( 1, 1, "Kane");
+        Lokasi telu = new Lokasi ( 9, 9, "Maknyus");
+
+        Hotel surga = new Hotel ("Surgawi", enam, 10");
+        Hotel kane = new Hotel ( "Kane", sembilan, "Maknyus");
+
+        Room jh1 = new PremiumRoom(surga, "jh1");
+        DatabaseRoom.addRoom(jh1);
+        Room jh2 = new PremiumRoom(kane, "jh2");
+        DatabaseRoom.addRoom(jh2);
+        Room jh3 = new PremiumRoom(maknyus, "jh3");
+        DatabaseRoom.addRoom(jh3);
     }
 
 

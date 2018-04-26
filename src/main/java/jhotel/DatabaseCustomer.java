@@ -2,7 +2,7 @@ package jhotel;
 import java.util.ArrayList;
 
 /**
- * Class DatabaseCustomer untuk Case Study Praktikum OOP 
+ * Class DatabaseCustomer
  *
  * @author Muhammad Aris Rizaldi
  * @version 19/4/2018
@@ -30,7 +30,7 @@ public class DatabaseCustomer
     public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException {
         for (Customer cust :
                 CUSTOMER_DATABASE) {
-            if(cust.getID() == baru.getID() || cust.getEmail().compareTo(baru.getEmail()) == 0){
+            if(cust.getID() == baru.getID() || cust.getEmail().equals(baru.getEmail())){
                 throw new PelangganSudahAdaException(baru);
             }
         }
@@ -46,7 +46,21 @@ public class DatabaseCustomer
         }
         return null;
     }
-    
+
+    public static Customer getCustomerLogin(String email, String password){
+
+        for (Customer pelanggan : CUSTOMER_DATABASE)
+        {
+            if (pelanggan.getEmail() == email && pelanggan.getPassword() == password)
+            {
+                return pelanggan;
+            }
+        }
+        return null;
+    }
+
+
+
     /**
      * Merupakan metode yang akan digunakan pada link database
      * dengan customer untuk menghapus customer kepada database
@@ -62,7 +76,7 @@ public class DatabaseCustomer
                             DatabasePesanan.removePesanan(pesan);
                         }
                         catch(PesananTidakDitemukanException e){
-                            
+
                         }
                     }
                 }

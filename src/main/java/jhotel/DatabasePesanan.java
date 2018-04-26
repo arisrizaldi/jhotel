@@ -2,11 +2,13 @@ package jhotel;
 import java.util.ArrayList;
 
 /**
- * Class Database Pesanan Tugas OOP Praktikum Case Study
+ * Class DatabasePesanan digunakan sebagi
+ * database untuk pesanan.
  *
  * @author Muhammad Aris Rizaldi
  * @version 19/4/2018
  */
+
 public class DatabasePesanan
 {
     private static ArrayList<Pesanan> PESANAN_DATABASE = new ArrayList<>();
@@ -41,11 +43,12 @@ public class DatabasePesanan
         return null;
     }
 
-    public static Pesanan getPesanan(Room kamar){
+    public static Pesanan getPesananAktif(Room kamar){
         for (Pesanan pesan :
                 PESANAN_DATABASE) {
-            if(kamar.equals(pesan.getRoom())==true){
-                return pesan;
+            if(kamar.equals(pesan.getRoom())){
+                if (pesan.getStatusAktif() == true)
+                    return pesan;
             }
         }
         return null;
