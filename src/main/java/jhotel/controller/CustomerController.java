@@ -23,14 +23,7 @@ public class CustomerController {
     public Customer newCust(@RequestParam(value="name") String name,@RequestParam(value="bulan") int bulan,@RequestParam(value="tanggal") int tanggal,
                             @RequestParam(value="email") String email) {
 
-        try {
-            DatabaseCustomer.addCustomer(customer);
-        } catch(Exception ex) {
-            ex.getMessage();
-            return null;
-        };
-        return customer;
-    }
+
 
     @RequestMapping("/getcustomer/{id}")
     public Customer getCust(@PathVariable int id) {
