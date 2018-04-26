@@ -1,3 +1,4 @@
+
 package jhotel.controller;
 import jhotel.*;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
+
 @RestController
 public class CustomerController {
 
@@ -15,16 +19,16 @@ public class CustomerController {
         return "Hello " + name;
     }
 
-    @RequestMapping("/newcustomer")
-    public Customer newCust(@RequestParam(value="name") String name, @RequestParam(value="bulan") int bulan,@RequestParam(value="tanggal") int tanggal,@RequestParam(value="email") String email) {
-        Customer customer = new Customer(name,2000, bulan,tanggal, email);
+    @RequestMapping(value = "/newcustomer", method = RequestMethod.POST)
+    public Customer newCust(@RequestParam(value="name") String name,@RequestParam(value="bulan") int bulan,@RequestParam(value="tanggal") int tanggal,
+                            @RequestParam(value="email") String email) {
+        Customer customer = new Customer(name,2000,bulan,tanggal, email);
         try {
             DatabaseCustomer.addCustomer(customer);
         } catch(Exception ex) {
             ex.getMessage();
             return null;
         };
-
         return customer;
     }
 
