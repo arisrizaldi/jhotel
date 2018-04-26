@@ -25,14 +25,7 @@ public class CustomerController {
 <<<<<<< HEAD
 
 
-=======
-        Customer customer = new Customer(name,2000,bulan,tanggal, email);
-        try {
-            DatabaseCustomer.addCustomer(customer);
-        } catch(Exception ex) {
-            ex.getMessage();
-            return null;
-        };
+
         return customer;
     }
 >>>>>>> 7454ea96b70104b7fc891785efeddd00f0723090
