@@ -1,19 +1,15 @@
 package jhotel;
-/**
- * Class Exception TidakDitemukan
- *
- * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
- */
-public class PelangganTidakDitemukanException extends Exception{
+
+public class PelangganTidakDitemukanException extends Exception {
     private int pelanggan_error;
 
-    public PelangganTidakDitemukanException(int pelanggan_input){
-        super("Data Customer dengan ID ");
+    public PelangganTidakDitemukanException (int pelanggan_input){
+        super ("\n Pelanggan dengan data :");
         pelanggan_error = pelanggan_input;
+
     }
 
     public String getPesan(){
-        return super.getMessage() + pelanggan_error +" tidak ditemukan.";
+        return super.getMessage() + pelanggan_error + "\ntidak ditemukan.";
     }
 }

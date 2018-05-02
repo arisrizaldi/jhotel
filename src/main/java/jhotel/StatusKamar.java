@@ -1,9 +1,9 @@
 package jhotel;
 /**
- * Enumeration class TipeKamar - Membatasi tipe kamar
+ * Enumeration class StatusKamar - write a description of the enum class here
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version (version number or date here)
  */
 public enum StatusKamar
 {
@@ -11,21 +11,14 @@ public enum StatusKamar
     
     private final String status;
     
-    /**
-     * Constructor StatusKamar
-     * 
-     * @param type merupakan status dalam string
-     */
-    StatusKamar(String status) {
+
+    StatusKamar(String status)
+    {
         this.status=status;
     }
-    
-    /**
-     * toString() - Method pengambilan String
-     * 
-     * @return type mengembalikkan status kamar sebagai string
-     */
-    public String toString() {
+
+    public String toString()
+    {
         return this.status;
     }
 }

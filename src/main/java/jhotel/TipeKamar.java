@@ -1,33 +1,23 @@
 package jhotel;
 /**
- * Enumeration class TipeKamar - Membatasi tipe kamar
+ * Enumeration class TipeKamar - write a description of the enum class here
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version (version number or date here)
  */
 public enum TipeKamar
 {
-    SINGLE("Single"),DOUBLE("Double"),PREMIUM("Premium");
+    Single("Single"), Double("Double"), Premium("Premium");
+   
+    public final String deskripsi;
+
+    TipeKamar (String deskripsi) {
+        this.deskripsi = deskripsi;
     
-    private final String type;
-    
-    /**
-     * Constructor TipeKamar
-     * 
-     * @param type merupakan tipe kamar dalam string
-     */
-    TipeKamar(String type)
-    {
-        this.type=type;
     }
     
-    /**
-     * toString() - Method pengambilan String
-     * 
-     * @return type mengembalikkan tipe kamar sebagai string
-     */
-    public String toString()
-    {
-        return this.type;
+    public String deskripsi() {
+         return deskripsi;
     }
 }
+

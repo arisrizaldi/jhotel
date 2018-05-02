@@ -1,20 +1,15 @@
 package jhotel;
-/**
- * Class Exception TidakDitemukan
- *
- * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
- */
 
-public class HotelSudahAdaException extends Exception{
+public class HotelSudahAdaException extends Exception {
     private Hotel hotel_error;
 
-    public HotelSudahAdaException(Hotel hotel_input){
-        super("Hotel dengan nama : ");
+    public HotelSudahAdaException (Hotel hotel_input){
+        super ("\n Hotel Dengan Nama :");
         hotel_error = hotel_input;
+
     }
 
     public String getPesan(){
-        return super.getMessage() + hotel_error.getNama() + " sudah terdaftar.";
+        return super.getMessage() + hotel_error.getNama() + "\n sudah terdaftar.";
     }
 }

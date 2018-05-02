@@ -1,18 +1,19 @@
 package jhotel;
+
 import java.util.ArrayList;
 
 /**
- * Class DatabaseCustomer
+ * Program JHotel untuk bisnis perhotelan.
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version March-01-2018
  */
+
 public class DatabaseCustomer
 {
-    //Bagian disini menunjukan Variabel-variabel pada class
+    // instance variables - replace the example below with your own
     private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
     private static int LAST_CUSTOMER_ID = 0;
-    //Methode bagian sini akan dibenarkan, sampai modul integrasi database dengan java
 
     public static ArrayList<Customer> getCustomerDatabase(){
         return CUSTOMER_DATABASE;
@@ -23,14 +24,11 @@ public class DatabaseCustomer
     }
 
 
-    /**
-     * Merupakan metode yang akan digunakan pada link database
-     * dengan customer untuk menambah customer kepada database
-     */
-    public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException {
+    public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException
+    {
         for (Customer cust :
                 CUSTOMER_DATABASE) {
-            if(cust.getID() == baru.getID() || cust.getEmail().equals(baru.getEmail())){
+            if(cust.getID() == baru.getID() || cust.getEmail().compareTo(baru.getEmail()) == 0){
                 throw new PelangganSudahAdaException(baru);
             }
         }
@@ -39,33 +37,9 @@ public class DatabaseCustomer
         return true;
     }
 
-    public static Customer getCustomer(int id){
-        for (Customer cust :
-                CUSTOMER_DATABASE) {
-            if (cust.getID() == id) return cust;
-        }
-        return null;
-    }
 
-    public static Customer getCustomerLogin(String email, String password){
-
-        for (Customer pelanggan : CUSTOMER_DATABASE)
-        {
-            if (pelanggan.getEmail().equals(email)&& pelanggan.getPassword().equals(password))
-            {
-                return pelanggan;
-            }
-        }
-        return null;
-    }
-
-
-
-    /**
-     * Merupakan metode yang akan digunakan pada link database
-     * dengan customer untuk menghapus customer kepada database
-     */
-    public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException {
+    public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException
+    {
         for (Customer cust :
                 CUSTOMER_DATABASE) {
             if(cust.getID()==id){
@@ -87,4 +61,25 @@ public class DatabaseCustomer
         throw new PelangganTidakDitemukanException(id);
     }
 
+    /**
+     *
+     * @return null
+     */
+    public static Customer getCustomer(int id)
+    {
+        for (Customer cust :
+                CUSTOMER_DATABASE) {
+            if (cust.getID() == id) return cust;
+        }
+        return null;
+    }
+
+    public static Customer getCustomerLogin(String email, String password)
+    {
+        for (Customer cust :
+                CUSTOMER_DATABASE) {
+            if (cust.getEmail().equals(email) && cust.getPassword().equals(password)) return cust;
+        }
+        return null;
+    }
 }

@@ -2,22 +2,23 @@ package jhotel;
 import java.util.ArrayList;
 
 /**
- * Class DatabaseRoom untuk Case Study Praktikum OOP 
+ * Program JHotel untuk bisnis perhotelan.
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version March-01-2018
  */
+
 public class DatabaseRoom
 {
-    //Bagian disini menunjukan Variabel-variabel pada class
-    private static ArrayList<Room> ROOM_DATABASE = new ArrayList<>();
-    
-    //Methode bagian sini akan dibenarkan, sampai modul integrasi database dengan java
-    public static ArrayList<Room> getRoomDatabase(){
+    // instance variables - replace the example below with your own
+    private static ArrayList<Room> ROOM_DATABASE = new ArrayList<Room>();
+
+    public static ArrayList<Room> getRoomDatabase()
+    {
         return ROOM_DATABASE;
     }
-
-    public static boolean addRoom(Room baru) throws RoomSudahAdaException{
+    public static boolean addRoom(Room baru) throws RoomSudahAdaException
+    {
         if(baru.getHotel() != null) {
             for (Room kamar :
                     ROOM_DATABASE) {
@@ -33,10 +34,11 @@ public class DatabaseRoom
         else throw new RoomSudahAdaException(baru);
     }
 
-    public static Room getRoom(Hotel hotel,String nomor_kamar){
+    public static Room getRoom(Hotel hotel,String nomor_kamar)
+    {
         for (Room kamar :
                 ROOM_DATABASE) {
-            if (kamar.getHotel().equals(hotel) && kamar.getNomorKamar().compareTo(nomor_kamar) == 0) {
+            if (kamar.getHotel().equals(hotel) && kamar.getNomorKamar().equals(nomor_kamar)) {
                 return kamar;
             }
         }
@@ -54,11 +56,11 @@ public class DatabaseRoom
         return toReturn;
     }
 
-    public static ArrayList<Room> getVacantRooms(){
+    public static ArrayList<Room> getVacantRooms() {
         ArrayList<Room> toReturn = new ArrayList<>();
         for (Room kamar :
                 ROOM_DATABASE) {
-            if(kamar.getStatusKamar().equals(StatusKamar.VACANT)){
+            if (kamar.getStatusKamar().equals(StatusKamar.VACANT)) {
                 toReturn.add(kamar);
             }
         }
@@ -76,6 +78,6 @@ public class DatabaseRoom
                 }
             }
         }
-        throw new RoomTidakDitemukanException(hotel,nomor_kamar);
+        throw new RoomTidakDitemukanException(hotel, nomor_kamar);
     }
 }

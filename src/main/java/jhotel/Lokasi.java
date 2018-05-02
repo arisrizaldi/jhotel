@@ -1,97 +1,104 @@
 package jhotel;
+
 /**
- * Class Lokasi buat Tugas Case Study OOP
+ * Program JHotel untuk bisnis perhotelan.
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version March-01-2018
  */
+
 public class Lokasi
 {
-    //Bagian disini menunjukan Variabel-variabel pada class Lokasi
+    // instance variables
     private float x_coord;
     private float y_coord;
     private String deskripsiLokasi;
-    
-    //Method Constructor dari Class
+
     /**
-     * Ini merupakan Constructor dari Class Lokasi
+     * Constructor for objects of class Lokasi
      * 
-     * @param x_coord merupakan parameter untuk menentukan koordinasi x hotel
-     * @param y_coord merupakan parameter untuk menentukan koordinasi y hotel
-     * @param deskripsiLokasi merupakan parameter untuk menentukan deskripsiLokasi dari Hotel
+     * @param x_coord
+     * @param y_coord
+     * @param deskripsiLokasi
      */
     public Lokasi(float x_coord, float y_coord, String deskripsiLokasi)
     {
+        // instance variables
         this.x_coord = x_coord;
         this.y_coord = y_coord;
         this.deskripsiLokasi = deskripsiLokasi;
     }
     
-    //Methode Getter (Accessor) untuk class
     /**
-     * Ini merupakan Methode untuk mendapatkan X_Coord dari objek class Lokasi
+     * Accessor for objects of class Lokasi
+     * untuk mendapatkan nilai X
      * 
-     * @return x_coord mengembalikkan variabel koordinasi x objek class Lokasi
+     * @return x_coord
      */
-    public float getX(){
+    public float getX()
+    {
         return x_coord;
     }
     
     /**
-     * Ini merupakan Methode untuk mendapatkan Y_Coord dari objek class Lokasi
+     * Accessor for objects of class Lokasi
+     * untuk mendapatkan nilai Y
      * 
-     * @return y_coord mengembalikkan variabel koordinasi y objek class Lokasi
+     * @return y_coord
      */
-    public float getY(){
+    public float getY()
+    {
         return y_coord;
     }
     
     /**
-     * Ini merupakan Methode untuk mendapatkan deskripsiLokasi dari objek class Lokasi
+     * Accessor for objects of class Lokasi
+     * untuk mendapatkan nilai X
      * 
-     * @return deskripsiLokasi mengembalikkan variabel deskripsiLokasi objek class Lokasi
+     * @return deskripsiLokasi
      */
-    public String getDeskripsi(){
+    public String getDeskripsi()
+    {
         return deskripsiLokasi;
     }
     
-    //Methode Setter (Mutator) untuk class
     /**
-     * Ini merupakan Methode mutator untuk set nilai x_coord
+     * Mutator for objects of class Lokasi
+     * untuk menentukan nilai X
      * 
-     * @param x_coord merupakan variabel yang akan di masukkan pada variable x_coord pada Object Class Lokasi
+     * @param x_coord
      */
-    public void setX(float x_coord){
-        this.x_coord=x_coord;
+    public void setX(float x_coord)
+    {
+        this.x_coord = x_coord;
     }
     
     /**
-     * Ini merupakan Methode mutator untuk set nilai y_coord
+     * Mutator for objects of class Lokasi
+     * untuk menentukan nilai Y
      * 
-     * @param y_coord merupakan variabel yang akan di masukkan pada variable y_coord pada Object Class Lokasi
+     * @param y_coord
      */
-    public void setY(float y_coord){
-        this.y_coord=y_coord;
+    public void setY(float y_coord)
+    {
+        this.y_coord = y_coord;
     }
     
     /**
-     * Ini merupakan Methode mutator untuk set nilai deskripsiLokasi
+     * Mutator for objects of class Lokasi
+     * untuk menentukan nilai deskripsi
      * 
-     * @param deskripsi merupakan variabel yang akan di masukkan pada variable deskripsi pada Object Class Lokasi
+     * @param deskripsi
      */
-    public void setDeskripsi(String deskripsi){
+    public void setDeskripsi(String deskripsi)
+    {
         deskripsiLokasi = deskripsi;
     }
     
-    
-    //Methode print semua data
-    /**
-     * Merupakan Metod yang akan digunakan untuk mengprint data.
-     */
-    public String toString(){
-        return "X: " + getX()
-            + "\tY: " + getY()
-            + "\tDeskripsi Lokasi: " + getDeskripsi();
+    public String toString()
+    {
+      return "Koordinasi X \t\t:" + getX() 
+            + "\nKoordinasi Y \t\t:" + getY() 
+            + "\nDeskripsi Lokasi\t\t:" + getDeskripsi();
     }
-    
 }

@@ -1,47 +1,42 @@
 package jhotel;
+
 /**
- * Merupakan subclass room
+ * Write a description of class SingleRoom here.
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version (a version number or a date)
  */
 public class DoubleRoom extends Room
 {
-    // instance variables - replace the example below with your own
-    private static TipeKamar TIPE_KAMAR = TipeKamar.DOUBLE;
     private Customer customer2;
-    
+    private static TipeKamar TIPE_KAMAR = TipeKamar.Double;
+
     /**
      * Constructor for objects of class SingleRoom
      */
-    public DoubleRoom(Hotel hotel,String nomor_kamar) {
+    public DoubleRoom(Hotel hotel, String nomor_kamar)
+    {
         super(hotel, nomor_kamar);
     }
     
-    /**
-     * Method accessor untuk tipe kamar
-     * 
-     * @return TIPE_KAMAR mengembalikkan tipekamar
-     */
-    public TipeKamar getTipeKamar(){
+
+    public TipeKamar getTipeKamar()
+    {
+        // put your code here
         return TIPE_KAMAR;
     }
     
-    /**
-     * Method accessor untuk Customer 2
-     * 
-     * @return customer2 mengembalikkan customer kedua dari doubleroom
-     */
-    public Customer getCustomer2(){
+
+    public Customer getCustomer2()
+    {
+        // put your code here
         return customer2;
     }
-    
-    /**
-     * Method mutator untuk Customer 2
-     * 
-     * @param customer2 mengset nilai customer2
-     */
-    public void setCustomer2(Customer customer2){
+
+
+    public void setCustomer2 (Customer customer2)
+    {
         this.customer2 = customer2;
+        
     }
 }

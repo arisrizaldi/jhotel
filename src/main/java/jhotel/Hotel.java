@@ -1,112 +1,108 @@
 package jhotel;
+
 /**
- * Class Hotel buat Tugas Case Study OOP
- * Telah di update untuk Modul 2
+ * Program JHotel untuk bisnis perhotelan.
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version March-01-2018
  */
+
 public class Hotel
 {
-    //Bagian disini menunjukan Variabel variabel pada class Hotel
+    // instance variables - replace the example below with your own
     private int id;
     private String nama;
     private Lokasi lokasi;
     private int bintang;
-    
-    //Method Constructor dari Class
-    /**
-     * Ini merupakan Constructor dari Class Hotel
-     * 
-     * @param nama merupakan parameter untuk menentukan nama hotel
-     * @param lokasi merupakan parameter untuk menentukan lokasi hotel
-     * @param bintang merupakan parameter untuk menentukan bintang dari Hotel
-     */
+
     public Hotel(String nama, Lokasi lokasi, int bintang)
     {
+        //instance variable
         this.nama = nama;
         this.lokasi = lokasi;
         this.bintang = bintang;
-        this.id = DatabaseHotel.getLastHotelID()+1;
+        this.id = DatabaseHotel.getLastHotelId()+1;
     }
-    
-    //Methode Getter (Accessor) untuk class
-
 
     public int getID() {
         return id;
     }
 
     /**
-     * Ini merupakan Methode untuk mendapatkan nama dari objek class Hotel
+     * Accessor for objects of class Hotel
+     * untuk mendapatkan nilai nama
      * 
-     * @return nama mengembalikkan variabel nama objek class Hotel
+     * @return nama
      */
-    public String getNama(){
+    public String getNama()
+    {
         return nama;
     }
     
     /**
-     * Ini merupakan Methode untuk mendapatkan lokasi dari objek class Hotel
+     * Accessor for objects of class Hotel
+     * untuk mendapatkan nilai lokasi
      * 
-     * @return lokasi mengembalikkan variabel objek lokasi objek class Hotel
+     * @return lokasi
      */
-    public Lokasi getLokasi(){
+    public Lokasi getLokasi()
+    {
         return lokasi;
     }
     
-    /**
-     * Ini merupakan Methode untuk mendapatkan Bintang dari objek class Hotel
+        /**
+     * Accessor for objects of class Hotel
+     * untuk mendapatkan nilai binatang
      * 
-     * @return bintang mengembalikkan variabel bintang objek class Hotel
+     * @return bintang
      */
-    public int getBintang(){
+    public int getBintang()
+    {
         return bintang;
     }
     
-    //Methode Setter (Mutator) untuk class
-
+    /**
+     * Mutator for objects of class Hotel
+     * untuk menentukan nilai nama
+     * 
+     * @param nama
+     */
 
     public void setID(int id) {
         this.id = id;
     }
 
+    public void setNama(String nama)
+    {
+        this.nama = nama;
+    }
+    
     /**
-     * Ini merupakan Methode mutator untuk set nilai nama
+     * Mutator for objects of class Hotel
+     * untuk menentukan nilai lokasi
      * 
-     * @param nama merupakan variabel yang akan di masukkan pada variable nama pada Object Class
+     * @param lokasi
      */
-    public void setNama(String nama){
-        this.nama=nama;
+    public void setLokasi(Lokasi lokasi)
+    {
+        this.lokasi = lokasi;
     }
     
     /**
-     * Ini merupakan Methode mutator untuk set nilai lokasi
+     * Mutator for objects of class Hotel
+     * untuk menentukan nilai bintang
      * 
-     * @param lokasi merupakan variabel yang akan di masukkan pada variable Lokasi pada Object Class
+     * @param bintang
      */
-    public void setLokasi(Lokasi lokasi){
-        this.lokasi=lokasi;
+    public void setBintang(int bintang)
+    {
+        this.bintang = bintang;
     }
     
-    /**
-     * Ini merupakan Methode mutator untuk set nilai bintang
-     * 
-     * @param bintang merupakan variabel yang akan di masukkan pada variable bintang pada Object Class
-     */
-    public void setBintang(int bintang){
-        this.bintang=bintang;
+    public String toString()
+    {
+      return "\nNama Hotel \t\t:" + getNama()
+            +"\nBintang Hotel \t\t:" + getBintang() 
+            + "\nLokasi Hotel \t\t:" + getLokasi().getDeskripsi();
     }
-    
-    //Methode print semua data
-    /**
-     * Merupakan Metod yang akan digunakan untuk mengprint data.
-     */
-    public String toString(){
-        return "Hotel: " + getNama()
-            +"\tBintang: " + getBintang()
-            + "\tLokasi: " + getLokasi().getDeskripsi()+"\n";
-    }
-    
-    
 }

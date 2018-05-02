@@ -1,22 +1,16 @@
 package jhotel;
-/**
- * Class Exception TidakDitemukan
- *
- * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
- */
-
-public class RoomTidakDitemukanException extends Exception{
-    private String room_error;
+public class RoomTidakDitemukanException extends Exception {
     private Hotel hotel_error;
+    private String room_error;
 
-    public RoomTidakDitemukanException(Hotel hotel_input, String room_input){
-        super("Kamar yang terletak di : ");
-        room_error = room_input;
+    public RoomTidakDitemukanException (Hotel hotel_input,String room_input){
+        super ("\n Kamar yang terletak di :");
         hotel_error = hotel_input;
+        room_error = room_input;
+
     }
 
     public String getPesan(){
-        return super.getMessage() + hotel_error + " dan dengan nomor kamar " + room_error + " tidak ditemukan.";
+        return super.getMessage() + hotel_error + "dan dengan nomor kamar" + room_error + "\n tidak ditemukan.";
     }
 }

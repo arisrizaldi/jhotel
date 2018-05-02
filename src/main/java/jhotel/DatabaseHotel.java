@@ -1,32 +1,32 @@
 package jhotel;
 import java.util.ArrayList;
-
 /**
- * Class DatabaseHotel untuk Case Study Praktikum OOP 
+ * Program JHotel untuk bisnis perhotelan.
  *
  * @author Muhammad Aris Rizaldi
- * @version 19/4/2018
+ * @version March-01-2018
  */
+
 public class DatabaseHotel
 {
-    //Bagian disini menunjukan Variabel-variabel pada class
+    // instance variables - replace the example below with your own
     private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<>();
     private static int LAST_HOTEL_ID = 0;
-    
-    //Methode bagian sini akan dibenarkan, sampai modul integrasi database dengan java
+
+    /**
+     * 
+     * @return false
+     */
     public static ArrayList<Hotel> getHotelDatabase() {
         return HOTEL_DATABASE;
     }
 
-    public static int getLastHotelID() {
+    public static int getLastHotelId() {
         return LAST_HOTEL_ID;
     }
 
-    /**
-     * Merupakan metode yang akan digunakan pada link database
-     * dengan Room untuk menambah Rooom kepada database
-     */
-    public static boolean addHotel(Hotel baru) throws HotelSudahAdaException{
+    public static boolean addHotel(Hotel baru) throws HotelSudahAdaException
+    {
         for (Hotel hotel :
                 HOTEL_DATABASE) {
             if(hotel.getID() == baru.getID() || (hotel.getLokasi().equals(baru.getLokasi()) && hotel.getNama().compareTo(baru.getNama())==0)){
@@ -37,19 +37,13 @@ public class DatabaseHotel
         LAST_HOTEL_ID = baru.getID();
         return true;
     }
-
-    public static Hotel getHotel(int id){
-        for (Hotel hotel :
-                HOTEL_DATABASE) {
-            if (hotel.getID() == id) return hotel;
-        }
-        return null;
-    }
+    
     /**
-     * Merupakan metode yang akan digunakan pada link database
-     * dengan Room untuk menghapus Room kepada database
+     * 
+     * @return false
      */
-    public static boolean removeHotel(int id) throws HotelTidakDitemukanException {
+    public static boolean removeHotel(int id) throws HotelTidakDitemukanException
+    {
         for (Hotel hotel :
                 HOTEL_DATABASE) {
             if(hotel.getID()==id){
@@ -68,4 +62,18 @@ public class DatabaseHotel
         }
         throw new HotelTidakDitemukanException(id);
     }
+    
+    /**
+     * 
+     * @return null
+     */
+    public static Hotel getHotel(int id)
+    {
+        for (Hotel hotel :
+                HOTEL_DATABASE) {
+            if (hotel.getID() == id) return hotel;
+        }
+        return null;
+    }
+    
 }
