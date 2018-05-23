@@ -9,7 +9,7 @@ public class PesananController
     /**
      * method ini mengatur sisi server untuk melihat detail  pesanan customer berdasarkan id dari customer.
      * @author Muhammad Aris Rizaldi
-     * @version 20-5-2K18
+     * @version 21-5-2K18
      * @param id_customer
      */
     @RequestMapping(value = "/pesanancustomer/{id_customer}", method = RequestMethod.GET)

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Customer, Hotel, serta menambahkan object tersebut ke dalam database.
  * Kelas ini juga berfungsi untuk menjalankan bootrun sebagai SpringApplication.
  * @author Muhammad Aris Rizaldi
- * @version 20-5-2K18
+ * @version 21-5-2K18
  *
  */
 public class JHotel

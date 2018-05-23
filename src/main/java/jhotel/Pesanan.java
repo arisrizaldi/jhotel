@@ -184,7 +184,6 @@ public class Pesanan
     /**
      * ini adalah method mutator untuk mengeset nilai status dipeoses dari pesanan
      * @param diproses parameter variable lokal untuk dipassing ke variable global isDiproses
-     * @return isDiproses untuk mengembalikan nilai variable isDiproses
      *
      */
     public void setStatusDiproses(boolean diproses)

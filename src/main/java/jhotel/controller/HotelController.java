@@ -9,7 +9,7 @@ import java.util.*;
  * Kelas ini mengatur dari sisi server dan sisi client saat pengambilan data hotel.
  *
  * @author Muhammad Aris Rizaldi
- * @version 20-5-2K18
+ * @version 21-5-2K18
  */
 public class HotelController {
 
