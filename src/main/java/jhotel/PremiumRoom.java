@@ -1,59 +1,43 @@
 package jhotel;
 /**
- * Write a description of class SingleRoom here.
- *
+ * Ini adalah kelas yang berfungsi untuk menyediakan tipe kamar Premium
  * @author Muhammad Aris Rizaldi
- * @version (a version number or a date)
+ * @version 20-5-2K18
+ * @since April 2018
  */
 public class PremiumRoom extends Room
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private static double DISCOUNT = 0.3;
-    private static TipeKamar TIPE_KAMAR = TipeKamar.Premium;
+    private static TipeKamar TIPE_KAMAR = TipeKamar.PREMIUM;
 
     /**
-     * Constructor for objects of class SingleRoom
+     * Constructor object kelas PremiumRoom
+     * @param hotel adalah parameter dengan tipe object dari kelas Hotel
+     * @param nomor_kamar menyimpan nilai nomor_kamar berupa String
+     *
      */
     public PremiumRoom(Hotel hotel, String nomor_kamar)
     {
-        // initialise instance variables
         super(hotel, nomor_kamar);
-        
     }
-    
+
     /**
-     * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return TIPE_KAMAR mengembalikan nilai enum tipe kamar
      */
     public TipeKamar getTipeKamar()
     {
-        // put your code here
         return TIPE_KAMAR;
     }
-    
-        /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public double getDiscount()
-    {
-        // put your code here
-        return DISCOUNT;
-    }
-    
+
     /**
-     * Mutator for objects of class Pesanan
-     * untuk menentukan nilai status kamar
-     * 
-     * @param kamar
+     * Method ini digunakan untuk mengeset nilai diskon.
+     * @param dailytariff adalah parameter untuk menerima nilai daillyTariff
+     *
      */
-    public void setDailyTariff (double dailytariff)
+    public void setDailyTariff(double dailytariff)
     {
-        super.setDailyTariff(dailyTariff*DISCOUNT);
-        
+        super.setDailyTariff((dailytariff*DISCOUNT));
     }
 }

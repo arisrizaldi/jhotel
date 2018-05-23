@@ -1,104 +1,101 @@
 package jhotel;
 
 /**
- * Program JHotel untuk bisnis perhotelan.
- *
+ * Ini adalah kelas yang berfungsi untuk menyimpan data lokasi Hotel.
+ * Lokasi hotel terdiri dari koordinat X dan Y serta deskripsi Lokasi.
  * @author Muhammad Aris Rizaldi
- * @version March-01-2018
+ * @version 20-5-2K18
+ * @since April 2018
  */
-
 public class Lokasi
 {
-    // instance variables
+    
+    // instance variable class Lokasi
     private float x_coord;
     private float y_coord;
     private String deskripsiLokasi;
-
-    /**
-     * Constructor for objects of class Lokasi
-     * 
-     * @param x_coord
-     * @param y_coord
-     * @param deskripsiLokasi
-     */
-    public Lokasi(float x_coord, float y_coord, String deskripsiLokasi)
-    {
-        // instance variables
-        this.x_coord = x_coord;
-        this.y_coord = y_coord;
-        this.deskripsiLokasi = deskripsiLokasi;
-    }
     
-    /**
-     * Accessor for objects of class Lokasi
-     * untuk mendapatkan nilai X
-     * 
-     * @return x_coord
+    //Ini adalah constuctor class Lokasi
+    public Lokasi (float x_coord,float y_coord, String deskripsiLokasi)
+    {
+       this.x_coord=x_coord;
+       this.y_coord=y_coord;
+       this.deskripsiLokasi=deskripsiLokasi;
+    }
+
+    /*
+     * Metode getX untuk mendapatkan nilai koordinat X
+     * @return x_coord mengembalikan nilai koordinat X
      */
     public float getX()
     {
-        return x_coord;
+       return x_coord;
     }
-    
-    /**
-     * Accessor for objects of class Lokasi
-     * untuk mendapatkan nilai Y
-     * 
-     * @return y_coord
-     */
+
+    /*
+     * Metode getY untuk mendapatkan nilai koordinat Y
+     * @return x_coord mengembalikan nilai koordinat Y
+     */    
     public float getY()
     {
-        return y_coord;
+        return y_coord;   
     }
-    
-    /**
-     * Accessor for objects of class Lokasi
-     * untuk mendapatkan nilai X
-     * 
-     * @return deskripsiLokasi
+
+    /*
+     * Metode getDiskripsi untuk menampilkan deskripsi lokasi
+     * @return deskripsi mengembalikan nilai ke variable deskripsiLokasi
      */
     public String getDeskripsi()
     {
-        return deskripsiLokasi;
+        return deskripsiLokasi;   
     }
-    
-    /**
-     * Mutator for objects of class Lokasi
-     * untuk menentukan nilai X
-     * 
-     * @param x_coord
+
+    /*
+     * Metode setX untuk mengeset nilai koordinat X
+     * @param x_coord variable untuk mengeset nilai koordinat x ke class variabel x_coord
      */
     public void setX(float x_coord)
     {
-        this.x_coord = x_coord;
+        this.x_coord=x_coord;
     }
-    
-    /**
-     * Mutator for objects of class Lokasi
-     * untuk menentukan nilai Y
-     * 
-     * @param y_coord
+
+    /*
+     * Metode setY untuk mengeset nilai koordinat Y
+     * @param y_coord variable lokal untuk dipassing class variale y_coord
      */
     public void setY(float y_coord)
     {
-        this.y_coord = y_coord;
+        this.y_coord=y_coord;
     }
-    
-    /**
-     * Mutator for objects of class Lokasi
-     * untuk menentukan nilai deskripsi
-     * 
-     * @param deskripsi
+
+    /*
+     * Method mutator untuk mengeset deskripsi lokasi
+     * @param deskripsi adalah variable lokal unutk dipassing ke class variable deskripsi
      */
     public void setDeskripsi(String deskripsi)
     {
-        deskripsiLokasi = deskripsi;
+        deskripsiLokasi=deskripsi;
+    }
+
+    /*
+     * Metode untuk menampilakn nilai object dalam betuk String
+     */
+    public String toString(){
+        return "\nKoordinat X       : "+ getX()+
+               "\nKoordinat Y       : "+ getY()+
+               "\nDeskripsi lokasi  : "+ getDeskripsi();
     }
     
-    public String toString()
+  
+    /*
+    public void printData()
     {
-      return "Koordinasi X \t\t:" + getX() 
-            + "\nKoordinasi Y \t\t:" + getY() 
-            + "\nDeskripsi Lokasi\t\t:" + getDeskripsi();
+        System.out.println("Lokasi");
+        System.out.println("Koordinat x :" + x_coord);
+        System.out.println("Koordinat y :" + y_coord);
+        System.out.println("Deskripsi :" + deskripsiLokasi);
     }
+    */
+
+    
 }

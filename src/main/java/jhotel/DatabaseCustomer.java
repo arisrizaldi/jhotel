@@ -1,85 +1,128 @@
 package jhotel;
-
 import java.util.ArrayList;
-
 /**
- * Program JHotel untuk bisnis perhotelan.
- *
+ * Ini adalah kelas yang berfungsi untuk menyimpan data-data pelanggan dalam array.
+ * Setiap customer yang mendaftar akan mendapatkan ID terurut diawali dari 1 dan seterusnya.
+ * Kelas ini mengandung informasi mengenai object customer dan penanganan penambahan customer baru
  * @author Muhammad Aris Rizaldi
- * @version March-01-2018
+ * @version 20-5-2K18
  */
 
-public class DatabaseCustomer
-{
-    // instance variables - replace the example below with your own
-    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
-    private static int LAST_CUSTOMER_ID = 0;
-
-    public static ArrayList<Customer> getCustomerDatabase(){
-        return CUSTOMER_DATABASE;
-    }
-
-    public static int getLastCustomerID() {
-        return LAST_CUSTOMER_ID;
-    }
-
-
-    public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException
+    public class DatabaseCustomer
     {
-        for (Customer cust :
-                CUSTOMER_DATABASE) {
-            if(cust.getID() == baru.getID() || cust.getEmail().compareTo(baru.getEmail()) == 0){
-                throw new PelangganSudahAdaException(baru);
-            }
+        private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
+        private static int LAST_CUSTOMER_ID = 0;
+
+        /**
+         * method untuk membuat arraylist berisi customer
+         *
+         * @return CUSTOMER_DATABASE
+         */
+        public static ArrayList<Customer> getCustomerDatabase()
+        {
+            return CUSTOMER_DATABASE;
         }
-        CUSTOMER_DATABASE.add(baru);
-        LAST_CUSTOMER_ID = baru.getID();
-        return true;
-    }
 
+        /**
+         * untuk mendapatkan ID dari customer terakhir
+         *
+         * @return LAST_CUSTOMER_ID
+         */
+        public static int getLastCustomerID()
+        {
+            return LAST_CUSTOMER_ID;
+        }
 
-    public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException
-    {
-        for (Customer cust :
-                CUSTOMER_DATABASE) {
-            if(cust.getID()==id){
-                for (Pesanan pesan :
-                        DatabasePesanan.getPesananDatabase()) {
-                    if(pesan.getPelanggan().equals(cust)) {
-                        try{
-                            DatabasePesanan.removePesanan(pesan);
-                        }
-                        catch(PesananTidakDitemukanException e){
+        /**
+         * untuk menambahkan data customer.
+         *
+         * @return true
+         */
+        public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException
+        {
+            for(Customer pelanggan : CUSTOMER_DATABASE)
+            {
+                if(pelanggan.getID() == baru.getID() ||
+                        pelanggan.getEmail().equals(baru.getEmail()))
+                {
+                    throw new PelangganSudahAdaException(pelanggan);
 
-                        }
+                }
+            }
+            CUSTOMER_DATABASE.add(baru);
+            LAST_CUSTOMER_ID = baru.getID();
+            return true;
+        }
+
+        /**
+         * untuk mendapatkan customer dengan id yang ditentukan
+         *
+         * @param id menentukan id customer
+         * @return cust mengembalikan nilai customer jika memenuhi syarat
+         * @return null jika nilai yang diambil dari array tidak memenuhi kondisi
+         */
+        public static Customer getCustomer(int id)
+        {
+            for (Customer cust : CUSTOMER_DATABASE)
+            {
+                if (cust.getID() == id)
+                {
+                    return cust;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * untuk mendapatkan customer yang login menggunakan email dan passwordnya.
+         *
+         * @param email menentukan nilai email
+         * @param password menentukan nilai password
+         * @return cust mengembalikan nilai customer jika memenuhi syarat
+         * @return null jika nilai yang diambil dari arraylist tidak memenuhi kondisi
+         */
+        public static Customer getCustomerLogin(String email, String password){
+            for(Customer cust : CUSTOMER_DATABASE){
+                if (cust.getEmail().equals(email) && cust.getPassword().equals(password))
+                {
+                    return cust;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * untuk menghapus data customer.
+         *
+         * @return true
+         */
+        public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException
+        {
+            for(Customer pelanggan : CUSTOMER_DATABASE)
+            {
+                if(pelanggan.getID() == id)
+                {
+                    try
+                    {
+                        DatabasePesanan.removePesanan(
+                                DatabasePesanan.getPesananAktif(pelanggan));
+                    }
+                    catch(PesananTidakDitemukanException a)
+                    {
+                        throw new PelangganTidakDitemukanException(id);
+                    }
+
+                    if(CUSTOMER_DATABASE.remove(pelanggan))
+                    {
+                        return true;
                     }
                 }
-                CUSTOMER_DATABASE.remove(cust);
-                return true;
             }
-        }
-        throw new PelangganTidakDitemukanException(id);
-    }
 
-    /**
-     *
-     * @return null
-     */
-    public static Customer getCustomer(int id)
-    {
-        for (Customer cust :
-                CUSTOMER_DATABASE) {
-            if (cust.getID() == id) return cust;
-        }
-        return null;
-    }
+            throw new PelangganTidakDitemukanException(id);
 
-    public static Customer getCustomerLogin(String email, String password)
-    {
-        for (Customer cust :
-                CUSTOMER_DATABASE) {
-            if (cust.getEmail().equals(email) && cust.getPassword().equals(password)) return cust;
         }
-        return null;
+
+
     }
-}
+    

@@ -1,79 +1,101 @@
 package jhotel;
 import java.util.ArrayList;
 /**
- * Program JHotel untuk bisnis perhotelan.
- *
+ * Ini adalah kelas yang berfungsi menyimpan data informasi hotel dalam bentuk array list
+ * Kelas ini menampung object Hotel dalam bentuk array list.
+ * Setiap terdapat object Pesanan baru, maka akan ditambahkan ke DatabasePesanan bentuk array list dengan ID berdasarkan
+ * urutan penambahan hotel tersebut.
  * @author Muhammad Aris Rizaldi
- * @version March-01-2018
+ * @version 20-5-2K18
  */
-
 public class DatabaseHotel
 {
-    // instance variables - replace the example below with your own
-    private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<>();
+    private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<Hotel>();
     private static int LAST_HOTEL_ID = 0;
 
     /**
-     * 
-     * @return false
+     * method untuk membuat arraylist berisi hotel
+     * @return HOTEL_DATABASE
      */
-    public static ArrayList<Hotel> getHotelDatabase() {
+    public static ArrayList<Hotel> getHotelDatabase()
+    {
         return HOTEL_DATABASE;
     }
 
-    public static int getLastHotelId() {
+    /**
+     * untuk mendapatkan ID dari hotel terakhir
+     * @return LAST_HOTEL_ID
+     */
+    public static int getLastHotelID()
+    {
         return LAST_HOTEL_ID;
     }
 
+    /**
+     * untuk menambahkan data hotel.
+     * @return true
+     */
     public static boolean addHotel(Hotel baru) throws HotelSudahAdaException
     {
-        for (Hotel hotel :
-                HOTEL_DATABASE) {
-            if(hotel.getID() == baru.getID() || (hotel.getLokasi().equals(baru.getLokasi()) && hotel.getNama().compareTo(baru.getNama())==0)){
-                throw new HotelSudahAdaException(hotel);
+        for(Hotel cari : HOTEL_DATABASE){
+            if(baru.getID() == cari.getID() || baru.getNama().equals(cari.getNama())){
+                throw new HotelSudahAdaException(baru);
             }
         }
+
         HOTEL_DATABASE.add(baru);
         LAST_HOTEL_ID = baru.getID();
+        //DatabaseHotel.LAST_HOTEL_ID++;
         return true;
     }
-    
-    /**
-     * 
-     * @return false
-     */
-    public static boolean removeHotel(int id) throws HotelTidakDitemukanException
-    {
-        for (Hotel hotel :
-                HOTEL_DATABASE) {
-            if(hotel.getID()==id){
-                for (Room kamar :
-                        DatabaseRoom.getRoomsFromHotel(hotel)) {
-                    try{
-                        DatabaseRoom.removeRoom(hotel, kamar.getNomorKamar());
-                    }
-                    catch(RoomTidakDitemukanException e){
 
-                    }
-                }
-                HOTEL_DATABASE.remove(hotel);
-                return true;
-            }
-        }
-        throw new HotelTidakDitemukanException(id);
-    }
-    
     /**
-     * 
-     * @return null
+     * untuk mendapatkan hotel dengan id yang ditentukan
+     * @param id menerima passing nilai id hotel berupa integer
+     * @return hotel bila memenuhi kondisi
+     * @return null bila tidak memenuhi kondisi
      */
     public static Hotel getHotel(int id)
     {
-        for (Hotel hotel :
-                HOTEL_DATABASE) {
-            if (hotel.getID() == id) return hotel;
+        for(Hotel hotel : HOTEL_DATABASE)
+        {
+            if(hotel.getID() == id)
+            {
+                return hotel;
+            }
         }
-        return null;
+
+        return  null;
     }
+
+    /**
+     * untuk menghapus data hotel.
+     *
+     * @return true
+     */
+    public static boolean removeHotel(int id) throws HotelTidakDitemukanException
+    {
+        for(Hotel cari1 : HOTEL_DATABASE){
+            if(cari1.getID() == id)
+            {
+                for(Room cari2 : DatabaseRoom.getRoomsFromHotel(cari1))
+                {
+                    try {
+                        DatabaseRoom.removeRoom(cari1, cari2.getNomorKamar());
+                    }
+                    catch(RoomTidakDitemukanException cek){
+                        System.out.println(cek.getPesan());
+                    }
+                }
+                HOTEL_DATABASE.remove(cari1);
+                return true;
+            }
+        }
+
+        throw new HotelTidakDitemukanException(id);
+    }
+
+
+
     
 }

@@ -1,15 +1,18 @@
 package jhotel;
-
-public class PesananSudahAdaException extends Exception{
+/*
+ * sudah pernah dibuat sebelumnya
+ * @author Muhammad Aris Rizaldi
+ * @version 20-5-2K18
+ * @exception PesananSudahAdaException kelas turunan Exception yang berfungsi untuk menangan bila Pesanan yang dibuat
+ * @since April 2018
+ */
+public class PesananSudahAdaException extends Exception {
     private Pesanan pesanan_error;
-
     public PesananSudahAdaException (Pesanan pesanan_input){
-        super ("\n Pesanan yang dipesan oleh :");
-        pesanan_error = pesanan_input;
-
+        super("Pesanan yang dipesan oleh :");
+        pesanan_error=pesanan_input;
     }
-
     public String getPesan(){
-        return super.getMessage() + pesanan_error.getPelanggan().getNama() + "\n sudah melakukan pemesanan.";
+        return super.getMessage()+pesanan_error.getPelanggan().getNama()+"sudah melakukan pesanan.";
     }
 }
